@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HealthTrack</string>
+    <string name="but0_name">Appointments</string>
 </resources>
