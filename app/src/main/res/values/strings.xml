@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">HealthTrack</string>
+    <string name="app_name">Health Track</string>
+    <string name="but0_name">Appointments</string>
+    <string name="but1_name">Home</string>
+    <string name="but2_name">Health Care Practitioners</string>
+    <string name="but3_name">COVID Risk Areas + Prevention</string>
+    <string name="but4_name">Medical Profile</string>
+    <string name="content_desc_0">Profile image</string>
 </resources>
