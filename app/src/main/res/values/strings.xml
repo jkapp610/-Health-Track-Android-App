@@ -4,4 +4,5 @@
     <string name="but1_name">Home</string>
     <string name="but2_name">Health Care Practitioners</string>
     <string name="but3_name">COVID Risk Areas + Prevention</string>
+    <string name="content_desc_0">Profile image</string>
 </resources>
