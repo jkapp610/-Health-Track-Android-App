@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         nameTxt.setText("Billy Bob Joe"); //TODO get patient name from database
     }
 
+    public void onClickProfile(View view){
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
     public void onClickAppointments(View view){
         Intent intent = new Intent(this, AppointmentsActivity.class);
         startActivity(intent);
