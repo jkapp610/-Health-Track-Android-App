@@ -24,4 +24,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickCovid(View view){
+        Intent intent = new Intent(this, CovidActivity.class);
+        startActivity(intent);
+    }
+
 }
