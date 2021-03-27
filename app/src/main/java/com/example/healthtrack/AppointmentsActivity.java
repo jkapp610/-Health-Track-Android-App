@@ -27,6 +27,11 @@ public class AppointmentsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickNewAppointment(View view){
+        Intent intent = new Intent(this, NewAppointmentActivity.class);
+        startActivity(intent);
+    }
+
     // Just a test for now... //TODO get actual data from the database
     public class Appointment {
         private String practitoner;
