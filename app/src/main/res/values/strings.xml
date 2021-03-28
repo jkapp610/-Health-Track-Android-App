@@ -6,11 +6,13 @@
     <string name="but3_name">COVID Risk Areas + Prevention</string>
     <string name="but4_name">Medical Profile</string>
     <string name="but5_name">New Appointment</string>
+    <string name="but6_name">Create Appointment</string>
     <string name="content_desc_0">Profile image</string>
     <string name="title_0">Appointments</string>
     <string name="title_1">Create Appointment</string>
     <string name="hint_0">MM/DD/YY</string>
-    <string name="hint_1">HH:MM (0:00 - 24:00)</string>
+    <string name="hint_1">HH:MM (0:00 to 24:00)</string>
     <string name="hint_2">Please select a practitioner V</string>
+    <string name="sw0_name">Remind me</string>
     <string name="action_settings">Settings</string>
 </resources>

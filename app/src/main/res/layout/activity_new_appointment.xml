@@ -9,6 +9,23 @@
     tools:context=".NewAppointmentActivity">
 
     <Button
+        android:id="@+id/createBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickCreate"
+        android:text="@string/but6_name"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <Button
         android:id="@+id/homeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -39,6 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/homeBtn" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
@@ -55,11 +73,10 @@
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:hint="@string/hint_2"
-            android:textColorHint="#FFFFFF"
-            android:textColor="#FFFFFF"
             android:textAlignment="center"
-            android:textSize="24sp"
-            />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp" />
 
         <EditText
             android:id="@+id/dateTxt"
@@ -68,24 +85,37 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_0"
-            android:textColorHint="#FFFFFF"
-            android:textColor="#FFFFFF"
             android:inputType="date"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/timeTxt"
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_1"
-            android:textColorHint="#FFFFFF"
-            android:textColor="#FFFFFF"
             android:inputType="time"
             android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="226dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="161dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/sw0_name"
             android:textSize="24sp"
-            android:autofillHints="" />
+            android:textColor="#FFFFFF"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     </LinearLayout>
 

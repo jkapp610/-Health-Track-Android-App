@@ -17,14 +17,21 @@ public class NewAppointmentActivity extends AppCompatActivity {
 
         //TODO actually get list of practitioners from the database!
         String[] practitioners = { "Dr. Hilton", "Dr. Sparks", "Dr. Allison", "Dr. Varde" };
-        Spinner spin = (Spinner) findViewById(R.id.practitionerList);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, practitioners);
+        Spinner spin = findViewById(R.id.practitionerList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, practitioners);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         spin.setAdapter(adapter);
     }
 
     public void onClickHome(View view){
         Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickCreate(View view){
+        // TODO: if valid data, send appointment to the database; else prompt user to re-enter data
+
+        Intent intent = new Intent(this, AppointmentsActivity.class);
         startActivity(intent);
     }
 
