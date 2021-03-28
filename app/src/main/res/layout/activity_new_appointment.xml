@@ -50,15 +50,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/practitioner"
+        <Spinner
+            android:id="@+id/practitionerList"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="Practitioner"
-            android:textSize="24sp" />
+            android:hint="@string/hint_2"
+            android:textColorHint="#FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            />
 
         <EditText
-            android:id="@+id/editTextDate"
+            android:id="@+id/dateTxt"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:autofillHints=""
@@ -71,7 +75,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editTextTime"
+            android:id="@+id/timeTxt"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:ems="10"
