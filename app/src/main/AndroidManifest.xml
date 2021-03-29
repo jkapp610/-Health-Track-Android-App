@@ -9,12 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthTrack">
-        <activity android:name=".NewAppointmentActivity"></activity>
+        <activity android:name=".CargiverSignupActivity"></activity>
+        <activity android:name=".PatientSignUpActivity" />
+        <activity android:name=".AccounTypeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NewAppointmentActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CovidActivity" />
         <activity android:name=".PractitionersActivity" />
         <activity android:name=".AppointmentsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
