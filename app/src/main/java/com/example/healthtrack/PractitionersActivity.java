@@ -19,8 +19,16 @@ public class PractitionersActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickNewPractitoner(View view){
+    public void onClickNew(View view){
         Intent intent = new Intent(this, NewPractitionerActivity.class);
+        startActivity(intent);
+    }
+
+    public void onClickEdit(View view){
+        //TODO: init values for the specific practitioner we clicked on, so we can pre-populate the fields in
+        // the next screen. We're already grabbing the data & we know which button was pressed, so
+        // this is the easiest way to get the existing practitioner info.
+        Intent intent = new Intent(this, EditPractitionerActivity.class);
         startActivity(intent);
     }
 

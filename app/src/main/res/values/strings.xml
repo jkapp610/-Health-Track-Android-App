@@ -14,6 +14,7 @@
     <string name="title_2">Edit Appointment</string>
     <string name="title_3">Practitioners</string>
     <string name="title_4">Add Practitioner</string>
+    <string name="title_5">Edit Practitioner</string>
     <string name="hint_0">MM/DD/YY</string>
     <string name="hint_1">HH:MM (0:00 to 24:00)</string>
     <string name="hint_2">Please select a practitioner V</string>

@@ -6,7 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light"
-    android:onClick="onClickNewPractitoner"
     tools:context=".PractitionersActivity">
 
     <Button
@@ -17,7 +16,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="54dp"
-        android:onClick="onClickNewPractitoner"
+        android:onClick="onClickNew"
         android:text="@string/but5_name"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -77,6 +76,7 @@
                 android:id="@+id/apt0"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="visible" />
@@ -85,22 +85,25 @@
                 android:id="@+id/apt1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/apt2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="invisible" />
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/apt3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
@@ -109,6 +112,7 @@
                 android:id="@+id/apt4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />

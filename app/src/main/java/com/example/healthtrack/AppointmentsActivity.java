@@ -27,12 +27,12 @@ public class AppointmentsActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickNewAppointment(View view){
+    public void onClickNew(View view){
         Intent intent = new Intent(this, NewAppointmentActivity.class);
         startActivity(intent);
     }
 
-    public void onClickAppointment(View view){
+    public void onClickEdit(View view){
         //TODO: init values for the specific appt we clicked on, so we can pre-populate the fields in
         // the next screen. We're already grabbing the data & we know which button was pressed, so
         // this is the easiest way to get the existing appt info.
