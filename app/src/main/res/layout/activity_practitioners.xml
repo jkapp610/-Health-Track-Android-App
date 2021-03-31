@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConstraintLayout"
-    android:background="@android:color/holo_blue_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AppointmentsActivity">
+    android:background="@android:color/holo_blue_light"
+    android:onClick="onClickNewPractitoner"
+    tools:context=".PractitionersActivity">
 
     <Button
         android:id="@+id/newApptBtn"
@@ -16,7 +17,7 @@
         android:layout_marginTop="650dp"
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="54dp"
-        android:onClick="onClickNewAppointment"
+        android:onClick="onClickNewPractitoner"
         android:text="@string/but5_name"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -76,7 +77,6 @@
                 android:id="@+id/apt0"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickAppointment"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="visible" />
@@ -85,7 +85,6 @@
                 android:id="@+id/apt1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickAppointment"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
@@ -94,7 +93,6 @@
                 android:id="@+id/apt2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickAppointment"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
@@ -103,7 +101,6 @@
                 android:id="@+id/apt3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickAppointment"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
@@ -112,7 +109,6 @@
                 android:id="@+id/apt4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickAppointment"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />

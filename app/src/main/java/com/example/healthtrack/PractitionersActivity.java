@@ -19,4 +19,9 @@ public class PractitionersActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickNewPractitoner(View view){
+        Intent intent = new Intent(this, NewPractitionerActivity.class);
+        startActivity(intent);
+    }
+
 }
