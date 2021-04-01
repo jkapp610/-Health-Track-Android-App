@@ -31,10 +31,34 @@ public class PractitionersActivity extends AppCompatActivity {
     }
 
     public void onClickEdit(View view){
-        //TODO: init values for the specific practitioner we clicked on, so we can pre-populate the fields in
-        // the next screen. We're already grabbing the data & we know which button was pressed, so
-        // this is the easiest way to get the existing practitioner info.
+        //TODO: get actual data from the database.
+        //NOTE: there is probably a much better way of doing this...
+        // Pre-populate the fields on the following edit screen.
         Intent intent = new Intent(this, EditPractitionerActivity.class);
+        Button btn = (Button) view;
+        PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
+        List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
+        if( (Button) findViewById(R.id.pract0) == btn) {
+            intent.putExtra("key_name", pract.get(0).name);
+            intent.putExtra("key_title", pract.get(0).title);
+            intent.putExtra("key_address", pract.get(0).address);
+        }else if( (Button) findViewById(R.id.pract1) == btn){
+            intent.putExtra("key_name",pract.get(1).name);
+            intent.putExtra("key_title",pract.get(1).title);
+            intent.putExtra("key_address",pract.get(1).address);
+        }else if( (Button) findViewById(R.id.pract2) == btn){
+            intent.putExtra("key_name",pract.get(2).name);
+            intent.putExtra("key_title",pract.get(2).title);
+            intent.putExtra("key_address",pract.get(2).address);
+        }else if( (Button) findViewById(R.id.pract3) == btn){
+            intent.putExtra("key_name",pract.get(3).name);
+            intent.putExtra("key_title",pract.get(3).title);
+            intent.putExtra("key_address",pract.get(3).address);
+        }else if( (Button) findViewById(R.id.pract4) == btn){
+            intent.putExtra("key_name",pract.get(4).name);
+            intent.putExtra("key_title",pract.get(4).title);
+            intent.putExtra("key_address",pract.get(4).address);
+        }
         startActivity(intent);
     }
 
@@ -68,35 +92,35 @@ public class PractitionersActivity extends AppCompatActivity {
 
     // Just a test for now... //TODO get actual data from the database
     private void fillPractitioners(){
-        PractitionersActivity.Practitioner appointment = new PractitionersActivity.Practitioner();
-        List<PractitionersActivity.Practitioner> pract = appointment.GetItems();
+        PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
+        List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
         int numPract = pract.size();
 
-        Button btn0 = (Button) findViewById(R.id.apt0);
+        Button btn0 = (Button) findViewById(R.id.pract0);
         if(numPract > 0) {
             btn0.setText(pract.get(0).name + "\n" + pract.get(0).title + "\n" + pract.get(0).address);
             btn0.setVisibility(View.VISIBLE);
         }else btn0.setVisibility(View.INVISIBLE);
 
-        Button btn1 = (Button) findViewById(R.id.apt1);
+        Button btn1 = (Button) findViewById(R.id.pract1);
         if(numPract > 1) {
             btn1.setText(pract.get(1).name + "\n" + pract.get(1).title + "\n" + pract.get(1).address);
             btn1.setVisibility(View.VISIBLE);
         }else btn1.setVisibility(View.INVISIBLE);
 
-        Button btn2 = (Button) findViewById(R.id.apt2);
+        Button btn2 = (Button) findViewById(R.id.pract2);
         if(numPract > 2) {
             btn2.setText(pract.get(2).name + "\n" + pract.get(2).title + "\n" + pract.get(2).address);
             btn2.setVisibility(View.VISIBLE);
         }else btn2.setVisibility(View.INVISIBLE);
 
-        Button btn3 = (Button) findViewById(R.id.apt3);
+        Button btn3 = (Button) findViewById(R.id.pract3);
         if(numPract > 3) {
             btn3.setText(pract.get(3).name + "\n" + pract.get(3).title + "\n" + pract.get(3).address);
             btn3.setVisibility(View.VISIBLE);
         }else btn3.setVisibility(View.INVISIBLE);
 
-        Button btn4 = (Button) findViewById(R.id.apt4);
+        Button btn4 = (Button) findViewById(R.id.pract4);
         if(numPract > 4) {
             btn4.setText(pract.get(4).name + "\n" + pract.get(4).title + "\n" + pract.get(4).address);
             btn4.setVisibility(View.VISIBLE);

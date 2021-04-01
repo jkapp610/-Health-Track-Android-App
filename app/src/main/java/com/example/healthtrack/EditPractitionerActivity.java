@@ -3,8 +3,11 @@ package com.example.healthtrack;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.w3c.dom.Text;
 
 public class EditPractitionerActivity extends AppCompatActivity {
 
@@ -12,6 +15,18 @@ public class EditPractitionerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_practitioner);
+
+        // Pre-populated the fields from the previous screen based on pressed button.
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("key_name");
+        String title = intent.getStringExtra("key_title");
+        String address = intent.getStringExtra("key_address");
+        EditText nameTxt = findViewById(R.id.nameTxt);
+        nameTxt.setText(name);
+        EditText titleTxt = findViewById(R.id.titleTxt);
+        titleTxt.setText(title);
+        EditText addressTxt = findViewById(R.id.addressTxt);
+        addressTxt.setText(address);
     }
 
     public void onClickHome(View view){
