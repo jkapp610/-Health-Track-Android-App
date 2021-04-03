@@ -19,6 +19,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         fillConditions();
         fillPrescriptions();
+        fillVaccines();
     }
 
     public void onClickHome(View view){
@@ -177,5 +178,71 @@ public class ProfileActivity extends AppCompatActivity {
             btn4.setVisibility(View.VISIBLE);
         }else btn4.setVisibility(View.GONE);
     }
+
+    // Just a test for now... //TODO get actual data from the database
+    public class Vaccine {
+        private String name;
+        private String time;
+        private String date;
+        private Boolean reminder;
+
+        public Vaccine() {
+
+        }
+
+        public Vaccine(String name, String time, String date, Boolean reminder) {
+            this.name = name;
+            this.time = time;
+            this.time = date;
+            this.reminder = reminder;
+        }
+
+        public List<ProfileActivity.Vaccine> GetItems() {
+            List<ProfileActivity.Vaccine> lstItems = new ArrayList<ProfileActivity.Vaccine>();
+
+            lstItems.add(new ProfileActivity.Vaccine("Flu",null,"10/10/21",false));
+            lstItems.add(new ProfileActivity.Vaccine("Tenaus",null,"07/07/27",false));
+
+            return lstItems;
+        }
+    }
+
+    // Just a test for now... //TODO get actual data from the database
+    private void fillVaccines(){
+        ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
+        List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
+        int numVacc = vacc.size();
+
+        Button btn0 = (Button) findViewById(R.id.vacc0);
+        if(numVacc > 0) {
+            btn0.setText(vacc.get(0).name);
+            btn0.setVisibility(View.VISIBLE);
+        }else btn0.setVisibility(View.GONE);
+
+        Button btn1 = (Button) findViewById(R.id.vacc1);
+        if(numVacc > 1) {
+            btn1.setText(vacc.get(1).name);
+            btn1.setVisibility(View.VISIBLE);
+        }else btn1.setVisibility(View.GONE);
+
+        Button btn2 = (Button) findViewById(R.id.vacc2);
+        if(numVacc > 2) {
+            btn2.setText(vacc.get(2).name);
+            btn2.setVisibility(View.VISIBLE);
+        }else btn2.setVisibility(View.GONE);
+
+        Button btn3 = (Button) findViewById(R.id.vacc3);
+        if(numVacc > 3) {
+            btn3.setText(vacc.get(3).name);
+            btn3.setVisibility(View.VISIBLE);
+        }else btn3.setVisibility(View.GONE);
+
+        Button btn4 = (Button) findViewById(R.id.vacc4);
+        if(numVacc > 4) {
+            btn4.setText(vacc.get(4).name);
+            btn4.setVisibility(View.VISIBLE);
+        }else btn4.setVisibility(View.GONE);
+    }
+
 
 }
