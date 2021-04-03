@@ -18,6 +18,7 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
 
         fillConditions();
+        fillPrescriptions();
     }
 
     public void onClickHome(View view){
@@ -108,6 +109,71 @@ public class ProfileActivity extends AppCompatActivity {
         Button btn4 = (Button) findViewById(R.id.cond4);
         if(numCond > 4) {
             btn4.setText(cond.get(4).name);
+            btn4.setVisibility(View.VISIBLE);
+        }else btn4.setVisibility(View.GONE);
+    }
+
+    // Just a test for now... //TODO get actual data from the database
+    public class Prescription {
+        private String name;
+        private String time;
+        private Boolean reminder;
+
+        public Prescription() {
+
+        }
+
+        public Prescription(String name, String time, Boolean reminder) {
+            this.name = name;
+            this.time = time;
+            this.reminder = reminder;
+        }
+
+        public List<ProfileActivity.Prescription> GetItems() {
+            List<ProfileActivity.Prescription> lstItems = new ArrayList<ProfileActivity.Prescription>();
+
+            lstItems.add(new ProfileActivity.Prescription("Albuterol Inhaler",null,false));
+            lstItems.add(new ProfileActivity.Prescription("Lisinopril",null,false));
+            lstItems.add(new ProfileActivity.Prescription("Maxalt","9:00",false));
+            lstItems.add(new ProfileActivity.Prescription("Topamax","22:00",true));
+
+            return lstItems;
+        }
+    }
+
+    // Just a test for now... //TODO get actual data from the database
+    private void fillPrescriptions(){
+        ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
+        List<ProfileActivity.Prescription> pres = prescription.GetItems();
+        int numPres = pres.size();
+
+        Button btn0 = (Button) findViewById(R.id.pres0);
+        if(numPres > 0) {
+            btn0.setText(pres.get(0).name);
+            btn0.setVisibility(View.VISIBLE);
+        }else btn0.setVisibility(View.GONE);
+
+        Button btn1 = (Button) findViewById(R.id.pres1);
+        if(numPres > 1) {
+            btn1.setText(pres.get(1).name);
+            btn1.setVisibility(View.VISIBLE);
+        }else btn1.setVisibility(View.GONE);
+
+        Button btn2 = (Button) findViewById(R.id.pres2);
+        if(numPres > 2) {
+            btn2.setText(pres.get(2).name);
+            btn2.setVisibility(View.VISIBLE);
+        }else btn2.setVisibility(View.GONE);
+
+        Button btn3 = (Button) findViewById(R.id.pres3);
+        if(numPres > 3) {
+            btn3.setText(pres.get(3).name);
+            btn3.setVisibility(View.VISIBLE);
+        }else btn3.setVisibility(View.GONE);
+
+        Button btn4 = (Button) findViewById(R.id.pres4);
+        if(numPres > 4) {
+            btn4.setText(pres.get(4).name);
             btn4.setVisibility(View.VISIBLE);
         }else btn4.setVisibility(View.GONE);
     }
