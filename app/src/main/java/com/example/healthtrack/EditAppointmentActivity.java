@@ -1,6 +1,5 @@
 package com.example.healthtrack;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -32,7 +31,7 @@ public class EditAppointmentActivity extends AppCompatActivity {
         String time = intent.getStringExtra("key_time");
         Boolean reminder = intent.getBooleanExtra("key_reminder",false);
         for(int i = 0; i < adapter.getCount(); i++) if(practitioner.equals(adapter.getItem(i))) spin.setSelection(i);
-        EditText dateTxt = findViewById(R.id.dateTxt);
+        EditText dateTxt = findViewById(R.id.conditionTitle);
         dateTxt.setText(date);
         EditText timeTxt = findViewById(R.id.timeTxt);
         timeTxt.setText(time);

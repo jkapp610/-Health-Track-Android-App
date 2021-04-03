@@ -79,7 +79,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/dateTxt"
+            android:id="@+id/conditionTitle"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:autofillHints=""
