@@ -52,5 +52,12 @@ public class EditAppointmentActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickRemove(View view){
+        // TODO: remove appointment from database
+
+        Intent intent = new Intent(this, AppointmentsActivity.class);
+        startActivity(intent);
+    }
+
 
 }
