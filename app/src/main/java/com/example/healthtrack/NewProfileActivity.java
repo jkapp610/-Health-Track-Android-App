@@ -18,6 +18,35 @@ public class NewProfileActivity extends AppCompatActivity {
         String type = intent.getStringExtra("key_type");
         TextView title = findViewById(R.id.titleTxt);
         title.setText("Add " + type);
+
+        // Display the correct fields for the previously selected type
+        TextView textBox;
+        switch (type) {
+            case "Condition":
+                textBox = findViewById(R.id.editTextTime);
+                textBox.setVisibility(View.GONE);
+                textBox = findViewById(R.id.editTextDate);
+                textBox.setVisibility(View.GONE);
+                textBox = findViewById(R.id.remindSwitch);
+                textBox.setVisibility(View.GONE);
+                break;
+            case "Prescription":
+                textBox = findViewById(R.id.editTextTime);
+                textBox.setVisibility(View.VISIBLE);
+                textBox = findViewById(R.id.editTextDate);
+                textBox.setVisibility(View.GONE);
+                textBox = findViewById(R.id.remindSwitch);
+                textBox.setVisibility(View.VISIBLE);
+                break;
+            case "Vaccine":
+                textBox = findViewById(R.id.editTextTime);
+                textBox.setVisibility(View.VISIBLE);
+                textBox = findViewById(R.id.editTextDate);
+                textBox.setVisibility(View.VISIBLE);
+                textBox = findViewById(R.id.remindSwitch);
+                textBox.setVisibility(View.VISIBLE);
+                break;
+        }
     }
 
     public void onClickHome(View view){
@@ -26,7 +55,7 @@ public class NewProfileActivity extends AppCompatActivity {
     }
 
     public void onClickCreate(View view){
-        // TODO: if valid data, send appointment to the database; else prompt user to re-enter data
+        // TODO: if valid data, send to the database; else prompt user to re-enter data
 
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
