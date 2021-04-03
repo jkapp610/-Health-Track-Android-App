@@ -7,12 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ProfileActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        fillConditions();
     }
 
     public void onClickHome(View view){
@@ -45,6 +50,66 @@ public class ProfileActivity extends AppCompatActivity {
         else if((Button) findViewById(R.id.vacc4) == btn) intent.putExtra("key_type","Vaccine");
 
         startActivity(intent);
+    }
+
+    // Just a test for now... //TODO get actual data from the database
+    public class Condition {
+        private String name;
+
+        public Condition() {
+
+        }
+
+        public Condition(String name) {
+            this.name = name;
+        }
+
+        public List<ProfileActivity.Condition> GetItems() {
+            List<ProfileActivity.Condition> lstItems = new ArrayList<ProfileActivity.Condition>();
+
+            lstItems.add(new ProfileActivity.Condition("Asthma"));
+            lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
+            lstItems.add(new ProfileActivity.Condition("Migraines"));
+
+            return lstItems;
+        }
+    }
+
+    // Just a test for now... //TODO get actual data from the database
+    private void fillConditions(){
+        ProfileActivity.Condition condition = new ProfileActivity.Condition();
+        List<ProfileActivity.Condition> cond = condition.GetItems();
+        int numCond = cond.size();
+
+        Button btn0 = (Button) findViewById(R.id.cond0);
+        if(numCond > 0) {
+            btn0.setText(cond.get(0).name);
+            btn0.setVisibility(View.VISIBLE);
+        }else btn0.setVisibility(View.GONE);
+
+        Button btn1 = (Button) findViewById(R.id.cond1);
+        if(numCond > 1) {
+            btn1.setText(cond.get(1).name);
+            btn1.setVisibility(View.VISIBLE);
+        }else btn1.setVisibility(View.GONE);
+
+        Button btn2 = (Button) findViewById(R.id.cond2);
+        if(numCond > 2) {
+            btn2.setText(cond.get(2).name);
+            btn2.setVisibility(View.VISIBLE);
+        }else btn2.setVisibility(View.GONE);
+
+        Button btn3 = (Button) findViewById(R.id.cond3);
+        if(numCond > 3) {
+            btn3.setText(cond.get(3).name);
+            btn3.setVisibility(View.VISIBLE);
+        }else btn3.setVisibility(View.GONE);
+
+        Button btn4 = (Button) findViewById(R.id.cond4);
+        if(numCond > 4) {
+            btn4.setText(cond.get(4).name);
+            btn4.setVisibility(View.VISIBLE);
+        }else btn4.setVisibility(View.GONE);
     }
 
 }
