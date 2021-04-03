@@ -6,8 +6,8 @@
     <string name="but3_name">COVID Risk Areas + Prevention</string>
     <string name="but4_name">Medical Profile</string>
     <string name="but5_name">Add</string>
-    <string name="but6_name">Add</string>
     <string name="but7_name">Edit</string>
+    <string name="but8_name">Remove</string>
     <string name="content_desc_0">Profile image</string>
     <string name="title_0">Appointments</string>
     <string name="title_1">Add Appointment</string>

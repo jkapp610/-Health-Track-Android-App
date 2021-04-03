@@ -23,7 +23,8 @@ public class NewPractitionerActivity extends AppCompatActivity {
 
     public void onClickCreate(View view){
         // TODO: if valid data, send practitioner to the database; else prompt user to re-enter data
-
+        //TODO: figure out how many buttons are currently visible on the previous screen & pick an
+        // available button to store this information.
         Intent intent = new Intent(this, PractitionersActivity.class);
         startActivity(intent);
     }
