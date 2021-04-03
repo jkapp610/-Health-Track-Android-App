@@ -26,6 +26,7 @@
     <string name="hint_7">+</string>
     <string name="hint_8">Prescriptions</string>
     <string name="hint_9">Renewable Vaccines</string>
+    <string name="hint_10">...</string>
     <string name="sw0_name">Remind me</string>
     <string name="action_settings">Settings</string>
 </resources>

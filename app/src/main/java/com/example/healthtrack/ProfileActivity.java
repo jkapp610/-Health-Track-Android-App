@@ -22,15 +22,15 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void onClickNew(View view){
         //TODO: figure out whether its a "health condition", "prescription", or "vaccine"
-//        Button btn = (Button) view;
-//        Intent intent = new Intent(this, NewProfileActivity.class);
-//        if((Button) findViewById(R.id.cond0) == btn) intent.putExtra("key_btn","cond");
-//        else if((Button) findViewById(R.id.cond1) == btn) intent.putExtra("key_btn","cond");
-//        else if((Button) findViewById(R.id.cond2) == btn) intent.putExtra("key_btn","cond");
-//        else if((Button) findViewById(R.id.cond3) == btn) intent.putExtra("key_btn","cond");
-//        else if((Button) findViewById(R.id.cond4) == btn) intent.putExtra("key_btn","cond");
+        Button btn = (Button) view;
+        Intent intent = new Intent(this, NewProfileActivity.class);
+        if((Button) findViewById(R.id.cond0) == btn) intent.putExtra("key_type","Condition");
+        else if((Button) findViewById(R.id.cond1) == btn) intent.putExtra("key_type","Condition");
+        else if((Button) findViewById(R.id.cond2) == btn) intent.putExtra("key_type","Condition");
+        else if((Button) findViewById(R.id.cond3) == btn) intent.putExtra("key_type","Condition");
+        else if((Button) findViewById(R.id.cond4) == btn) intent.putExtra("key_type","Condition");
 
-//        startActivity(intent);
+        startActivity(intent);
     }
 
 }

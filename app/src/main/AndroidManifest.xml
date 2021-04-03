@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthTrack">
-        <activity android:name=".NewAppointmentActivity"/>
-        <activity android:name=".EditAppointmentActivity"/>
+        <activity android:name=".NewProfileActivity"></activity>
+        <activity android:name=".NewAppointmentActivity" />
+        <activity android:name=".EditAppointmentActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CovidActivity" />
         <activity android:name=".PractitionersActivity" />
