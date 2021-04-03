@@ -73,7 +73,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/apt0"
+                android:id="@+id/appt0"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:onClick="onClickEdit"
@@ -82,7 +82,7 @@
                 android:visibility="visible" />
 
             <Button
-                android:id="@+id/apt1"
+                android:id="@+id/appt1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:onClick="onClickEdit"
@@ -91,7 +91,7 @@
                 android:visibility="invisible" />
 
             <Button
-                android:id="@+id/apt2"
+                android:id="@+id/appt2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:onClick="onClickEdit"
@@ -100,7 +100,7 @@
                 android:visibility="invisible" />
 
             <Button
-                android:id="@+id/apt3"
+                android:id="@+id/appt3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:onClick="onClickEdit"
@@ -109,7 +109,7 @@
                 android:visibility="invisible" />
 
             <Button
-                android:id="@+id/apt4"
+                android:id="@+id/appt4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:onClick="onClickEdit"
