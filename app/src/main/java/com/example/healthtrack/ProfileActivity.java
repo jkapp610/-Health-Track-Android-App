@@ -41,7 +41,7 @@ public class ProfileActivity extends AppCompatActivity {
         int numCond = cond.size();
         ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
-
+        int numPres = pres.size();
         ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
         List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
 
@@ -87,43 +87,53 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }else if((Button) findViewById(R.id.pres0) == btn){
             intent.putExtra("key_type","Prescription");
-            if(!pres.get(0).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",pres.get(0).name);
-                intent.putExtra("key_time",pres.get(0).time);
-                intent.putExtra("key_reminder",pres.get(0).reminder);
+            if(numPres > 0) {
+                if (!pres.get(0).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", pres.get(0).name);
+                    intent.putExtra("key_time", pres.get(0).time);
+                    intent.putExtra("key_reminder", pres.get(0).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.pres1) == btn){
             intent.putExtra("key_type","Prescription");
-            if(!pres.get(1).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",pres.get(1).name);
-                intent.putExtra("key_time",pres.get(1).time);
-                intent.putExtra("key_reminder",pres.get(1).reminder);
+            if(numPres > 1) {
+                if (!pres.get(1).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", pres.get(1).name);
+                    intent.putExtra("key_time", pres.get(1).time);
+                    intent.putExtra("key_reminder", pres.get(1).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.pres2) == btn){
             intent.putExtra("key_type","Prescription");
-            if(!pres.get(2).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",pres.get(2).name);
-                intent.putExtra("key_time",pres.get(2).time);
-                intent.putExtra("key_reminder",pres.get(2).reminder);
+            if(numPres > 2) {
+                if (!pres.get(2).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", pres.get(2).name);
+                    intent.putExtra("key_time", pres.get(2).time);
+                    intent.putExtra("key_reminder", pres.get(2).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.pres3) == btn){
             intent.putExtra("key_type","Prescription");
-            if(!pres.get(3).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",pres.get(3).name);
-                intent.putExtra("key_time",pres.get(3).time);
-                intent.putExtra("key_reminder",pres.get(3).reminder);
+            if(numPres > 3) {
+                if (!pres.get(3).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", pres.get(3).name);
+                    intent.putExtra("key_time", pres.get(3).time);
+                    intent.putExtra("key_reminder", pres.get(3).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.pres4) == btn){
             intent.putExtra("key_type","Prescription");
-            if(!pres.get(4).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",pres.get(4).name);
-                intent.putExtra("key_time",pres.get(4).time);
-                intent.putExtra("key_reminder",pres.get(4).reminder);
+            if(numPres > 4) {
+                if (!pres.get(4).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", pres.get(4).name);
+                    intent.putExtra("key_time", pres.get(4).time);
+                    intent.putExtra("key_reminder", pres.get(4).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.vacc0) == btn){
             intent.putExtra("key_type","Vaccine");
@@ -188,7 +198,7 @@ public class ProfileActivity extends AppCompatActivity {
             lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
             lstItems.add(new ProfileActivity.Condition("Migraines"));
             lstItems.add(new ProfileActivity.Condition("Explosive Diarrhea"));
-            lstItems.add(new ProfileActivity.Condition("Allergic to Neanderthals"));
+            lstItems.add(new ProfileActivity.Condition("Human Allergies"));
 
             return lstItems;
         }
@@ -262,6 +272,7 @@ public class ProfileActivity extends AppCompatActivity {
             lstItems.add(new ProfileActivity.Prescription("Lisinopril",null,false));
             lstItems.add(new ProfileActivity.Prescription("Maxalt","9:00",false));
             lstItems.add(new ProfileActivity.Prescription("Topamax","22:00",true));
+//            lstItems.add(new ProfileActivity.Prescription("Nasanex","9:00",true));
 
             return lstItems;
         }
@@ -273,35 +284,73 @@ public class ProfileActivity extends AppCompatActivity {
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
         int numPres = pres.size();
 
+//        Button btn0 = (Button) findViewById(R.id.pres0);
+//        if(numPres > 0) {
+//            btn0.setText(pres.get(0).name);
+//            btn0.setVisibility(View.VISIBLE);
+//        }else btn0.setVisibility(View.GONE);
+//
+//        Button btn1 = (Button) findViewById(R.id.pres1);
+//        if(numPres > 1) {
+//            btn1.setText(pres.get(1).name);
+//            btn1.setVisibility(View.VISIBLE);
+//        }else btn1.setVisibility(View.GONE);
+//
+//        Button btn2 = (Button) findViewById(R.id.pres2);
+//        if(numPres > 2) {
+//            btn2.setText(pres.get(2).name);
+//            btn2.setVisibility(View.VISIBLE);
+//        }else btn2.setVisibility(View.GONE);
+//
+//        Button btn3 = (Button) findViewById(R.id.pres3);
+//        if(numPres > 3) {
+//            btn3.setText(pres.get(3).name);
+//            btn3.setVisibility(View.VISIBLE);
+//        }else btn3.setVisibility(View.GONE);
+//
+//        Button btn4 = (Button) findViewById(R.id.pres4);
+//        if(numPres > 4) {
+//            btn4.setText(pres.get(4).name);
+//            btn4.setVisibility(View.VISIBLE);
+//        }else btn4.setVisibility(View.GONE);
+
         Button btn0 = (Button) findViewById(R.id.pres0);
         if(numPres > 0) {
             btn0.setText(pres.get(0).name);
             btn0.setVisibility(View.VISIBLE);
-        }else btn0.setVisibility(View.GONE);
+            Button btn1 = (Button) findViewById(R.id.pres1);
+            btn1.setVisibility(View.VISIBLE);
+        }
 
         Button btn1 = (Button) findViewById(R.id.pres1);
         if(numPres > 1) {
             btn1.setText(pres.get(1).name);
             btn1.setVisibility(View.VISIBLE);
-        }else btn1.setVisibility(View.GONE);
+            Button btn2 = (Button) findViewById(R.id.pres2);
+            btn2.setVisibility(View.VISIBLE);
+        }
 
         Button btn2 = (Button) findViewById(R.id.pres2);
         if(numPres > 2) {
             btn2.setText(pres.get(2).name);
             btn2.setVisibility(View.VISIBLE);
-        }else btn2.setVisibility(View.GONE);
+            Button btn3 = (Button) findViewById(R.id.pres3);
+            btn3.setVisibility(View.VISIBLE);
+        }
 
         Button btn3 = (Button) findViewById(R.id.pres3);
         if(numPres > 3) {
             btn3.setText(pres.get(3).name);
             btn3.setVisibility(View.VISIBLE);
-        }else btn3.setVisibility(View.GONE);
+            Button btn4 = (Button) findViewById(R.id.pres4);
+            btn4.setVisibility(View.VISIBLE);
+        }
 
         Button btn4 = (Button) findViewById(R.id.pres4);
         if(numPres > 4) {
             btn4.setText(pres.get(4).name);
             btn4.setVisibility(View.VISIBLE);
-        }else btn4.setVisibility(View.GONE);
+        }
     }
 
     // Just a test for now... //TODO get actual data from the database
