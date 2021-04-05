@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,39 +38,52 @@ public class ProfileActivity extends AppCompatActivity {
 
         ProfileActivity.Condition condition = new ProfileActivity.Condition();
         List<ProfileActivity.Condition> cond = condition.GetItems();
+        int numCond = cond.size();
         ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
+
         ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
         List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
+
         if((Button) findViewById(R.id.cond0) == btn){
             intent.putExtra("key_type","Condition");
-            if(!cond.get(0).name.equals(null)) {
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",cond.get(0).name);
+            if(numCond > 0) {
+                if (!cond.get(0).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", cond.get(0).name);
+                }
             }
         }else if((Button) findViewById(R.id.cond1) == btn){
             intent.putExtra("key_type", "Condition");
-            if(!cond.get(1).name.equals(null)) {
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",cond.get(1).name);
+            if(numCond > 1) {
+                if (!cond.get(1).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", cond.get(1).name);
+                }
             }
         }else if((Button) findViewById(R.id.cond2) == btn){
             intent.putExtra("key_type", "Condition");
-            if(!cond.get(2).name.equals(null)) {
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",cond.get(2).name);
+            if(numCond > 2) {
+                if (!cond.get(2).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", cond.get(2).name);
+                }
             }
         }else if((Button) findViewById(R.id.cond3) == btn){
             intent.putExtra("key_type", "Condition");
-            if(!cond.get(3).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",cond.get(3).name);
+            if(numCond > 3) {
+                if (!cond.get(3).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", cond.get(3).name);
+                }
             }
         }else if((Button) findViewById(R.id.cond4) == btn){
             intent.putExtra("key_type", "Condition");
-            if(!cond.get(4).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",cond.get(4).name);
+            if(numCond > 4) {
+                if (!cond.get(4).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", cond.get(4).name);
+                }
             }
         }else if((Button) findViewById(R.id.pres0) == btn){
             intent.putExtra("key_type","Prescription");
@@ -152,7 +166,6 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("key_reminder",vacc.get(4).reminder);
             }
         }
-
         startActivity(intent);
     }
 
@@ -174,6 +187,8 @@ public class ProfileActivity extends AppCompatActivity {
             lstItems.add(new ProfileActivity.Condition("Asthma"));
             lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
             lstItems.add(new ProfileActivity.Condition("Migraines"));
+            lstItems.add(new ProfileActivity.Condition("Explosive Diarrhea"));
+//            lstItems.add(new ProfileActivity.Condition("Seasonal Allergies"));
 
             return lstItems;
         }
@@ -189,31 +204,39 @@ public class ProfileActivity extends AppCompatActivity {
         if(numCond > 0) {
             btn0.setText(cond.get(0).name);
             btn0.setVisibility(View.VISIBLE);
-        }else btn0.setVisibility(View.GONE);
+            Button btn1 = (Button) findViewById(R.id.cond1);
+            btn1.setVisibility(View.VISIBLE);
+        }
 
         Button btn1 = (Button) findViewById(R.id.cond1);
         if(numCond > 1) {
             btn1.setText(cond.get(1).name);
             btn1.setVisibility(View.VISIBLE);
-        }else btn1.setVisibility(View.GONE);
+            Button btn2 = (Button) findViewById(R.id.cond2);
+            btn2.setVisibility(View.VISIBLE);
+        }
 
         Button btn2 = (Button) findViewById(R.id.cond2);
         if(numCond > 2) {
             btn2.setText(cond.get(2).name);
             btn2.setVisibility(View.VISIBLE);
-        }else btn2.setVisibility(View.GONE);
+            Button btn3 = (Button) findViewById(R.id.cond3);
+            btn3.setVisibility(View.VISIBLE);
+        }
 
         Button btn3 = (Button) findViewById(R.id.cond3);
         if(numCond > 3) {
             btn3.setText(cond.get(3).name);
             btn3.setVisibility(View.VISIBLE);
-        }else btn3.setVisibility(View.GONE);
+            Button btn4 = (Button) findViewById(R.id.cond4);
+            btn4.setVisibility(View.VISIBLE);
+        }
 
         Button btn4 = (Button) findViewById(R.id.cond4);
         if(numCond > 4) {
             btn4.setText(cond.get(4).name);
             btn4.setVisibility(View.VISIBLE);
-        }else btn4.setVisibility(View.GONE);
+        }
     }
 
     // Just a test for now... //TODO get actual data from the database
