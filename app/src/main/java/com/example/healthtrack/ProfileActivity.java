@@ -27,17 +27,48 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickNew(View view){
+    public void onClickBtn(View view){
         // Determine which type of medical record button was pressed, so we can set up the next
         // screen with the proper input fields (and later send to the correct spot in the database).
+        // Also, determine whether we're adding a new element or editing an existing one.
         // NOTE: there is probably a better way of doing this, but this will have to work for now...
         Button btn = (Button) view;
         Intent intent = new Intent(this, NewProfileActivity.class);
-        if((Button) findViewById(R.id.cond0) == btn) intent.putExtra("key_type","Condition");
-        else if((Button) findViewById(R.id.cond1) == btn) intent.putExtra("key_type","Condition");
-        else if((Button) findViewById(R.id.cond2) == btn) intent.putExtra("key_type","Condition");
-        else if((Button) findViewById(R.id.cond3) == btn) intent.putExtra("key_type","Condition");
-        else if((Button) findViewById(R.id.cond4) == btn) intent.putExtra("key_type","Condition");
+
+        ProfileActivity.Condition condition = new ProfileActivity.Condition();
+        List<ProfileActivity.Condition> cond = condition.GetItems();
+        int numCond = cond.size();
+        if((Button) findViewById(R.id.cond0) == btn){
+            intent.putExtra("key_type","Condition");
+            if(!cond.get(0).name.equals(null)) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",cond.get(0).name);
+            }
+        }else if((Button) findViewById(R.id.cond1) == btn){
+            intent.putExtra("key_type", "Condition");
+            if(!cond.get(1).name.equals(null)) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",cond.get(1).name);
+            }
+        }else if((Button) findViewById(R.id.cond2) == btn){
+            intent.putExtra("key_type", "Condition");
+            if(!cond.get(2).name.equals(null)) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",cond.get(2).name);
+            }
+        }else if((Button) findViewById(R.id.cond3) == btn){
+            intent.putExtra("key_type", "Condition");
+            if(!cond.get(3).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",cond.get(3).name);
+            }
+        }else if((Button) findViewById(R.id.cond4) == btn){
+            intent.putExtra("key_type", "Condition");
+            if(!cond.get(4).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",cond.get(4).name);
+            }
+        }
 
         else if((Button) findViewById(R.id.pres0) == btn) intent.putExtra("key_type","Prescription");
         else if((Button) findViewById(R.id.pres1) == btn) intent.putExtra("key_type","Prescription");

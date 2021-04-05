@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class NewProfileActivity extends AppCompatActivity {
@@ -29,6 +31,11 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox.setVisibility(View.GONE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.GONE);
+                if(intent.getBooleanExtra("key_edit",false)){
+                    String name = intent.getStringExtra("key_name");
+                    TextView txt = findViewById(R.id.editTxt);
+                    txt.setText(name);
+                }
                 break;
             case "Prescription":
                 textBox = findViewById(R.id.editTextTime);
@@ -47,6 +54,7 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox.setVisibility(View.VISIBLE);
                 break;
         }
+
     }
 
     public void onClickHome(View view){
