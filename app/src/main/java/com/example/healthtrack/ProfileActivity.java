@@ -44,6 +44,7 @@ public class ProfileActivity extends AppCompatActivity {
         int numPres = pres.size();
         ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
         List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
+        int numVacc = vacc.size();
 
         if((Button) findViewById(R.id.cond0) == btn){
             intent.putExtra("key_type","Condition");
@@ -137,43 +138,53 @@ public class ProfileActivity extends AppCompatActivity {
             }
         }else if((Button) findViewById(R.id.vacc0) == btn){
             intent.putExtra("key_type","Vaccine");
-            if(!vacc.get(0).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",vacc.get(0).name);
-                intent.putExtra("key_date",vacc.get(0).date);
-                intent.putExtra("key_reminder",vacc.get(0).reminder);
+            if(numVacc > 0) {
+                if (!vacc.get(0).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", vacc.get(0).name);
+                    intent.putExtra("key_date", vacc.get(0).date);
+                    intent.putExtra("key_reminder", vacc.get(0).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.vacc1) == btn){
             intent.putExtra("key_type","Vaccine");
-            if(!vacc.get(1).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",vacc.get(1).name);
-                intent.putExtra("key_date",vacc.get(1).date);
-                intent.putExtra("key_reminder",vacc.get(1).reminder);
+            if(numVacc > 1) {
+                if (!vacc.get(1).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", vacc.get(1).name);
+                    intent.putExtra("key_date", vacc.get(1).date);
+                    intent.putExtra("key_reminder", vacc.get(1).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.vacc2) == btn){
             intent.putExtra("key_type","Vaccine");
-            if(!vacc.get(2).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",vacc.get(2).name);
-                intent.putExtra("key_date",vacc.get(2).date);
-                intent.putExtra("key_reminder",vacc.get(2).reminder);
+            if(numVacc > 2) {
+                if (!vacc.get(2).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", vacc.get(2).name);
+                    intent.putExtra("key_date", vacc.get(2).date);
+                    intent.putExtra("key_reminder", vacc.get(2).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.vacc3) == btn){
             intent.putExtra("key_type","Vaccine");
-            if(!vacc.get(3).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",vacc.get(3).name);
-                intent.putExtra("key_date",vacc.get(3).date);
-                intent.putExtra("key_reminder",vacc.get(3).reminder);
+            if(numVacc > 3) {
+                if (!vacc.get(3).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", vacc.get(3).name);
+                    intent.putExtra("key_date", vacc.get(3).date);
+                    intent.putExtra("key_reminder", vacc.get(3).reminder);
+                }
             }
         }else if((Button) findViewById(R.id.vacc4) == btn){
             intent.putExtra("key_type","Vaccine");
-            if(!vacc.get(4).name.equals(null)){
-                intent.putExtra("key_edit", true);
-                intent.putExtra("key_name",vacc.get(4).name);
-                intent.putExtra("key_date",vacc.get(4).date);
-                intent.putExtra("key_reminder",vacc.get(4).reminder);
+            if(numVacc > 4) {
+                if (!vacc.get(4).name.equals(null)) {
+                    intent.putExtra("key_edit", true);
+                    intent.putExtra("key_name", vacc.get(4).name);
+                    intent.putExtra("key_date", vacc.get(4).date);
+                    intent.putExtra("key_reminder", vacc.get(4).reminder);
+                }
             }
         }
         startActivity(intent);
@@ -198,7 +209,7 @@ public class ProfileActivity extends AppCompatActivity {
             lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
             lstItems.add(new ProfileActivity.Condition("Migraines"));
             lstItems.add(new ProfileActivity.Condition("Explosive Diarrhea"));
-            lstItems.add(new ProfileActivity.Condition("Human Allergies"));
+//            lstItems.add(new ProfileActivity.Condition("Human Allergies"));
 
             return lstItems;
         }
@@ -284,36 +295,6 @@ public class ProfileActivity extends AppCompatActivity {
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
         int numPres = pres.size();
 
-//        Button btn0 = (Button) findViewById(R.id.pres0);
-//        if(numPres > 0) {
-//            btn0.setText(pres.get(0).name);
-//            btn0.setVisibility(View.VISIBLE);
-//        }else btn0.setVisibility(View.GONE);
-//
-//        Button btn1 = (Button) findViewById(R.id.pres1);
-//        if(numPres > 1) {
-//            btn1.setText(pres.get(1).name);
-//            btn1.setVisibility(View.VISIBLE);
-//        }else btn1.setVisibility(View.GONE);
-//
-//        Button btn2 = (Button) findViewById(R.id.pres2);
-//        if(numPres > 2) {
-//            btn2.setText(pres.get(2).name);
-//            btn2.setVisibility(View.VISIBLE);
-//        }else btn2.setVisibility(View.GONE);
-//
-//        Button btn3 = (Button) findViewById(R.id.pres3);
-//        if(numPres > 3) {
-//            btn3.setText(pres.get(3).name);
-//            btn3.setVisibility(View.VISIBLE);
-//        }else btn3.setVisibility(View.GONE);
-//
-//        Button btn4 = (Button) findViewById(R.id.pres4);
-//        if(numPres > 4) {
-//            btn4.setText(pres.get(4).name);
-//            btn4.setVisibility(View.VISIBLE);
-//        }else btn4.setVisibility(View.GONE);
-
         Button btn0 = (Button) findViewById(R.id.pres0);
         if(numPres > 0) {
             btn0.setText(pres.get(0).name);
@@ -374,6 +355,9 @@ public class ProfileActivity extends AppCompatActivity {
 
             lstItems.add(new ProfileActivity.Vaccine("Flu","10/10/21",true));
             lstItems.add(new ProfileActivity.Vaccine("Tenaus","07/07/27",true));
+//            lstItems.add(new ProfileActivity.Vaccine("Meningococcal","07/07/27",true));
+//            lstItems.add(new ProfileActivity.Vaccine("Shingles","09/01/50",true));
+//            lstItems.add(new ProfileActivity.Vaccine("MMR","09/01/50",false));
 
             return lstItems;
         }
@@ -389,31 +373,39 @@ public class ProfileActivity extends AppCompatActivity {
         if(numVacc > 0) {
             btn0.setText(vacc.get(0).name);
             btn0.setVisibility(View.VISIBLE);
-        }else btn0.setVisibility(View.GONE);
+            Button btn1 = (Button) findViewById(R.id.vacc1);
+            btn1.setVisibility(View.VISIBLE);
+        }
 
         Button btn1 = (Button) findViewById(R.id.vacc1);
         if(numVacc > 1) {
             btn1.setText(vacc.get(1).name);
             btn1.setVisibility(View.VISIBLE);
-        }else btn1.setVisibility(View.GONE);
+            Button btn2 = (Button) findViewById(R.id.vacc2);
+            btn2.setVisibility(View.VISIBLE);
+        }
 
         Button btn2 = (Button) findViewById(R.id.vacc2);
         if(numVacc > 2) {
             btn2.setText(vacc.get(2).name);
             btn2.setVisibility(View.VISIBLE);
-        }else btn2.setVisibility(View.GONE);
+            Button btn3 = (Button) findViewById(R.id.vacc3);
+            btn3.setVisibility(View.VISIBLE);
+        }
 
         Button btn3 = (Button) findViewById(R.id.vacc3);
         if(numVacc > 3) {
             btn3.setText(vacc.get(3).name);
             btn3.setVisibility(View.VISIBLE);
-        }else btn3.setVisibility(View.GONE);
+            Button btn4 = (Button) findViewById(R.id.vacc4);
+            btn4.setVisibility(View.VISIBLE);
+        }
 
         Button btn4 = (Button) findViewById(R.id.vacc4);
         if(numVacc > 4) {
             btn4.setText(vacc.get(4).name);
             btn4.setVisibility(View.VISIBLE);
-        }else btn4.setVisibility(View.GONE);
+        }
     }
 
 
