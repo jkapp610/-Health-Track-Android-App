@@ -37,6 +37,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     String name = intent.getStringExtra("key_name");
                     TextView txt = findViewById(R.id.editTxt);
                     txt.setText(name);
+                    Button btn = findViewById(R.id.removeBtn);
+                    btn.setVisibility(View.VISIBLE);
                 }
                 break;
             case "Prescription":
@@ -57,6 +59,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     Boolean reminder = intent.getBooleanExtra("key_reminder",false);
                     Switch remindSwitch = findViewById(R.id.remindSwitch);
                     remindSwitch.setChecked(reminder);
+                    Button btn = findViewById(R.id.removeBtn);
+                    btn.setVisibility(View.VISIBLE);
                 }
                 break;
             case "Vaccine":
@@ -77,6 +81,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     Boolean reminder = intent.getBooleanExtra("key_reminder",false);
                     Switch remindSwitch = findViewById(R.id.remindSwitch);
                     remindSwitch.setChecked(reminder);
+                    Button btn = findViewById(R.id.removeBtn);
+                    btn.setVisibility(View.VISIBLE);
                 }
                 break;
         }
@@ -94,4 +100,12 @@ public class NewProfileActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
+
+    public void onClickRemove(View view){
+        // TODO: remove element from database
+
+        Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
 }
