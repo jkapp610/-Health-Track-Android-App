@@ -39,6 +39,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     txt.setText(name);
                     Button btn = findViewById(R.id.removeBtn);
                     btn.setVisibility(View.VISIBLE);
+                    btn = findViewById(R.id.createBtn);
+                    btn.setText("Edit");
                 }
                 break;
             case "Prescription":
@@ -61,6 +63,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     remindSwitch.setChecked(reminder);
                     Button btn = findViewById(R.id.removeBtn);
                     btn.setVisibility(View.VISIBLE);
+                    btn = findViewById(R.id.createBtn);
+                    btn.setText("Edit");
                 }
                 break;
             case "Vaccine":
@@ -83,6 +87,8 @@ public class NewProfileActivity extends AppCompatActivity {
                     remindSwitch.setChecked(reminder);
                     Button btn = findViewById(R.id.removeBtn);
                     btn.setVisibility(View.VISIBLE);
+                    btn = findViewById(R.id.createBtn);
+                    btn.setText("Edit");
                 }
                 break;
         }

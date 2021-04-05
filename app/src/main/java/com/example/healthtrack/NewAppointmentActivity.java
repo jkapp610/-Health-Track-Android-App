@@ -16,7 +16,7 @@ public class NewAppointmentActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_appointment);
 
         //TODO actually get list of practitioners from the database!
-        String[] practitioners = { "Dr. Hilton", "Dr. Sparks", "Dr. Allison", "Dr. Varde" };
+        String[] practitioners = { "SELECT", "Dr. Hilton", "Dr. Sparks", "Dr. Allison", "Dr. Varde" };
         Spinner spin = findViewById(R.id.practitionerList);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.spinner_item, practitioners);
         adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
