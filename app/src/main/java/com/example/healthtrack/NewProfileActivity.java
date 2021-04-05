@@ -61,11 +61,23 @@ public class NewProfileActivity extends AppCompatActivity {
                 break;
             case "Vaccine":
                 textBox = findViewById(R.id.editTextTime);
-                textBox.setVisibility(View.VISIBLE);
+                textBox.setVisibility(View.GONE);
                 textBox = findViewById(R.id.editTextDate);
                 textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.VISIBLE);
+                if(intent.getBooleanExtra("key_edit",false)){
+                    title.setText("Edit " + type);
+                    String name = intent.getStringExtra("key_name");
+                    TextView txt = findViewById(R.id.editTxt);
+                    txt.setText(name);
+                    String date = intent.getStringExtra("key_date");
+                    EditText dateTxt = findViewById(R.id.editTextDate);
+                    dateTxt.setText(date);
+                    Boolean reminder = intent.getBooleanExtra("key_reminder",false);
+                    Switch remindSwitch = findViewById(R.id.remindSwitch);
+                    remindSwitch.setChecked(reminder);
+                }
                 break;
         }
 

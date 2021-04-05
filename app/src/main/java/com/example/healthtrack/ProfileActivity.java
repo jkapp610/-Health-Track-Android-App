@@ -39,6 +39,8 @@ public class ProfileActivity extends AppCompatActivity {
         List<ProfileActivity.Condition> cond = condition.GetItems();
         ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
+        ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
+        List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
         if((Button) findViewById(R.id.cond0) == btn){
             intent.putExtra("key_type","Condition");
             if(!cond.get(0).name.equals(null)) {
@@ -109,13 +111,47 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("key_time",pres.get(4).time);
                 intent.putExtra("key_reminder",pres.get(4).reminder);
             }
+        }else if((Button) findViewById(R.id.vacc0) == btn){
+            intent.putExtra("key_type","Vaccine");
+            if(!vacc.get(0).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",vacc.get(0).name);
+                intent.putExtra("key_date",vacc.get(0).date);
+                intent.putExtra("key_reminder",vacc.get(0).reminder);
+            }
+        }else if((Button) findViewById(R.id.vacc1) == btn){
+            intent.putExtra("key_type","Vaccine");
+            if(!vacc.get(1).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",vacc.get(1).name);
+                intent.putExtra("key_date",vacc.get(1).date);
+                intent.putExtra("key_reminder",vacc.get(1).reminder);
+            }
+        }else if((Button) findViewById(R.id.vacc2) == btn){
+            intent.putExtra("key_type","Vaccine");
+            if(!vacc.get(2).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",vacc.get(2).name);
+                intent.putExtra("key_date",vacc.get(2).date);
+                intent.putExtra("key_reminder",vacc.get(2).reminder);
+            }
+        }else if((Button) findViewById(R.id.vacc3) == btn){
+            intent.putExtra("key_type","Vaccine");
+            if(!vacc.get(3).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",vacc.get(3).name);
+                intent.putExtra("key_date",vacc.get(3).date);
+                intent.putExtra("key_reminder",vacc.get(3).reminder);
+            }
+        }else if((Button) findViewById(R.id.vacc4) == btn){
+            intent.putExtra("key_type","Vaccine");
+            if(!vacc.get(4).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",vacc.get(4).name);
+                intent.putExtra("key_date",vacc.get(4).date);
+                intent.putExtra("key_reminder",vacc.get(4).reminder);
+            }
         }
-
-        else if((Button) findViewById(R.id.vacc0) == btn) intent.putExtra("key_type","Vaccine");
-        else if((Button) findViewById(R.id.vacc1) == btn) intent.putExtra("key_type","Vaccine");
-        else if((Button) findViewById(R.id.vacc2) == btn) intent.putExtra("key_type","Vaccine");
-        else if((Button) findViewById(R.id.vacc3) == btn) intent.putExtra("key_type","Vaccine");
-        else if((Button) findViewById(R.id.vacc4) == btn) intent.putExtra("key_type","Vaccine");
 
         startActivity(intent);
     }
@@ -248,7 +284,6 @@ public class ProfileActivity extends AppCompatActivity {
     // Just a test for now... //TODO get actual data from the database
     public class Vaccine {
         private String name;
-        private String time;
         private String date;
         private Boolean reminder;
 
@@ -256,18 +291,17 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
 
-        public Vaccine(String name, String time, String date, Boolean reminder) {
+        public Vaccine(String name, String date, Boolean reminder) {
             this.name = name;
-            this.time = time;
-            this.time = date;
+            this.date = date;
             this.reminder = reminder;
         }
 
         public List<ProfileActivity.Vaccine> GetItems() {
             List<ProfileActivity.Vaccine> lstItems = new ArrayList<ProfileActivity.Vaccine>();
 
-            lstItems.add(new ProfileActivity.Vaccine("Flu",null,"10/10/21",false));
-            lstItems.add(new ProfileActivity.Vaccine("Tenaus",null,"07/07/27",false));
+            lstItems.add(new ProfileActivity.Vaccine("Flu","10/10/21",true));
+            lstItems.add(new ProfileActivity.Vaccine("Tenaus","07/07/27",true));
 
             return lstItems;
         }
