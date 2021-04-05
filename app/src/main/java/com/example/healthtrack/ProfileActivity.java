@@ -188,7 +188,7 @@ public class ProfileActivity extends AppCompatActivity {
             lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
             lstItems.add(new ProfileActivity.Condition("Migraines"));
             lstItems.add(new ProfileActivity.Condition("Explosive Diarrhea"));
-//            lstItems.add(new ProfileActivity.Condition("Seasonal Allergies"));
+            lstItems.add(new ProfileActivity.Condition("Allergic to Neanderthals"));
 
             return lstItems;
         }
