@@ -37,7 +37,8 @@ public class ProfileActivity extends AppCompatActivity {
 
         ProfileActivity.Condition condition = new ProfileActivity.Condition();
         List<ProfileActivity.Condition> cond = condition.GetItems();
-        int numCond = cond.size();
+        ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
+        List<ProfileActivity.Prescription> pres = prescription.GetItems();
         if((Button) findViewById(R.id.cond0) == btn){
             intent.putExtra("key_type","Condition");
             if(!cond.get(0).name.equals(null)) {
@@ -68,13 +69,47 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.putExtra("key_edit", true);
                 intent.putExtra("key_name",cond.get(4).name);
             }
+        }else if((Button) findViewById(R.id.pres0) == btn){
+            intent.putExtra("key_type","Prescription");
+            if(!pres.get(0).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",pres.get(0).name);
+                intent.putExtra("key_time",pres.get(0).time);
+                intent.putExtra("key_reminder",pres.get(0).reminder);
+            }
+        }else if((Button) findViewById(R.id.pres1) == btn){
+            intent.putExtra("key_type","Prescription");
+            if(!pres.get(1).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",pres.get(1).name);
+                intent.putExtra("key_time",pres.get(1).time);
+                intent.putExtra("key_reminder",pres.get(1).reminder);
+            }
+        }else if((Button) findViewById(R.id.pres2) == btn){
+            intent.putExtra("key_type","Prescription");
+            if(!pres.get(2).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",pres.get(2).name);
+                intent.putExtra("key_time",pres.get(2).time);
+                intent.putExtra("key_reminder",pres.get(2).reminder);
+            }
+        }else if((Button) findViewById(R.id.pres3) == btn){
+            intent.putExtra("key_type","Prescription");
+            if(!pres.get(3).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",pres.get(3).name);
+                intent.putExtra("key_time",pres.get(3).time);
+                intent.putExtra("key_reminder",pres.get(3).reminder);
+            }
+        }else if((Button) findViewById(R.id.pres4) == btn){
+            intent.putExtra("key_type","Prescription");
+            if(!pres.get(4).name.equals(null)){
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_name",pres.get(4).name);
+                intent.putExtra("key_time",pres.get(4).time);
+                intent.putExtra("key_reminder",pres.get(4).reminder);
+            }
         }
-
-        else if((Button) findViewById(R.id.pres0) == btn) intent.putExtra("key_type","Prescription");
-        else if((Button) findViewById(R.id.pres1) == btn) intent.putExtra("key_type","Prescription");
-        else if((Button) findViewById(R.id.pres2) == btn) intent.putExtra("key_type","Prescription");
-        else if((Button) findViewById(R.id.pres3) == btn) intent.putExtra("key_type","Prescription");
-        else if((Button) findViewById(R.id.pres4) == btn) intent.putExtra("key_type","Prescription");
 
         else if((Button) findViewById(R.id.vacc0) == btn) intent.putExtra("key_type","Vaccine");
         else if((Button) findViewById(R.id.vacc1) == btn) intent.putExtra("key_type","Vaccine");

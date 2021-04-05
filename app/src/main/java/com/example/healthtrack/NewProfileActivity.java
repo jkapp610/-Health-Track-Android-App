@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class NewProfileActivity extends AppCompatActivity {
@@ -32,6 +33,7 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.GONE);
                 if(intent.getBooleanExtra("key_edit",false)){
+                    title.setText("Edit " + type);
                     String name = intent.getStringExtra("key_name");
                     TextView txt = findViewById(R.id.editTxt);
                     txt.setText(name);
@@ -44,6 +46,18 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox.setVisibility(View.GONE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.VISIBLE);
+                if(intent.getBooleanExtra("key_edit",false)){
+                    title.setText("Edit " + type);
+                    String name = intent.getStringExtra("key_name");
+                    TextView txt = findViewById(R.id.editTxt);
+                    txt.setText(name);
+                    String time = intent.getStringExtra("key_time");
+                    EditText timeTxt = findViewById(R.id.editTextTime);
+                    timeTxt.setText(time);
+                    Boolean reminder = intent.getBooleanExtra("key_reminder",false);
+                    Switch remindSwitch = findViewById(R.id.remindSwitch);
+                    remindSwitch.setChecked(reminder);
+                }
                 break;
             case "Vaccine":
                 textBox = findViewById(R.id.editTextTime);
