@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthTrack">
         <activity android:name=".CargiverSignupActivity"></activity>
+        <activity android:name=".EditAppointmentActivity"/>
         <activity android:name=".PatientSignUpActivity" />
         <activity android:name=".AccounTypeActivity" />
         <activity android:name=".MainActivity" />
