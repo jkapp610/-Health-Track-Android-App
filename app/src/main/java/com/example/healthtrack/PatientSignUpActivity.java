@@ -1,10 +1,8 @@
 package com.example.healthtrack;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -19,9 +17,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
 
 public class PatientSignUpActivity extends AppCompatActivity implements View.OnClickListener {
     EditText EditTextFirstName;
@@ -43,14 +38,14 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
         mAuth = FirebaseAuth.getInstance();
 
 
-        EditTextFirstName = (EditText) findViewById(R.id.FName);
+        EditTextFirstName = (EditText) findViewById(R.id.CaregiverFirstname);
         EditTextLastName = (EditText) findViewById(R.id.pLName);
         EditTextBday = (EditText) findViewById(R.id.Birthday);
         EditTextHeight = (EditText) findViewById(R.id.Height);
         EditTextWeight = (EditText) findViewById(R.id.Weight);
-        EditTextEmail = (EditText) findViewById(R.id.PEmail);
+        EditTextEmail = (EditText) findViewById(R.id.CargiverEmail);
 
-        EditTextpassword = (EditText) findViewById(R.id.PPassword);
+        EditTextpassword = (EditText) findViewById(R.id.CargiverPassword);
 
 
         signup = (Button) findViewById(R.id.SignupButton);
@@ -122,7 +117,13 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Patient newPatient = new Patient(Firstname,Lastname,Birthday,Height,Weight,Email);
+                            Patient newPatient = new Patient();
+                            newPatient.setFirstName(Firstname);
+                            newPatient.setLastName(Lastname);
+                            newPatient.setBirthday(Birthday);
+                            newPatient.setHeight(Height);
+                            newPatient.setWeight(Weight);
+                            newPatient.setEmail(Email);
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference newref = database.getReference("Patients");
                              newref.child(mAuth.getCurrentUser().getUid())

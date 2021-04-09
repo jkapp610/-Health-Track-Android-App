@@ -7,16 +7,16 @@
     tools:context=".CargiverSignupActivity">
 
     <TextView
-        android:id="@+id/PSignup"
+        android:id="@+id/cSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="47dp"
-        android:text="Sign Up"
+        android:text="Cargiver Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <EditText
-        android:id="@+id/FName"
+        android:id="@+id/CaregiverFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="47dp"
@@ -25,10 +25,10 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PSignup" />
+        app:layout_constraintTop_toBottomOf="@+id/cSignup" />
 
     <EditText
-        android:id="@+id/LName"
+        android:id="@+id/CargiverLastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="156dp"
@@ -38,10 +38,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/PSignup" />
+        app:layout_constraintTop_toBottomOf="@+id/cSignup" />
 
     <EditText
-        android:id="@+id/PEmail"
+        android:id="@+id/CargiverEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="372dp"
@@ -54,15 +54,15 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/PPassword"
+        android:id="@+id/CargiverPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/PEmail"
-        app:layout_constraintTop_toBottomOf="@+id/PEmail" />
+        app:layout_constraintStart_toStartOf="@+id/CargiverEmail"
+        app:layout_constraintTop_toBottomOf="@+id/CargiverEmail" />
 
     <Button
         android:id="@+id/SignupButton"
@@ -70,10 +70,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="49dp"
         android:layout_marginTop="55dp"
-        android:onClick="onClicksignup"
         android:text="Signup"
-        app:layout_constraintStart_toStartOf="@+id/PPassword"
-        app:layout_constraintTop_toBottomOf="@+id/PPassword" />
+        app:layout_constraintStart_toStartOf="@+id/CargiverPassword"
+        app:layout_constraintTop_toBottomOf="@+id/CargiverPassword" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
