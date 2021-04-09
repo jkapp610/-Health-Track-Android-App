@@ -4,17 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CargiverSignupActivity">
+    tools:context=".CaregiverSignupActivity">
 
     <TextView
         android:id="@+id/cSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
-        android:text="Cargiver Sign Up"
+        android:layout_marginTop="44dp"
+        android:text="Caregiver Sign Up"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/CaregiverFirstname"
         android:layout_width="wrap_content"

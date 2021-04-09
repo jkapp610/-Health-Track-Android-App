@@ -14,7 +14,7 @@ public class AccounTypeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_accoun_type);
     }
     public void onClickCaregiver(View view){
-        Intent intent = new Intent(this, CargiverSignupActivity.class);
+        Intent intent = new Intent(this, CaregiverSignupActivity.class);
         startActivity(intent);
     }
     public void onClickPatient(View view){

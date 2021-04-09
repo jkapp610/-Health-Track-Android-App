@@ -1,15 +1,15 @@
 package com.example.healthtrack;
 
-public class Cargiver {
+public class Caregiver {
     private String FirstName;
     private String LastName;
   private String Email;
-    public  Cargiver(){
+    public Caregiver(){
 
     }
 
 
-    public Cargiver(String firstName, String lastName, String email) {
+    public Caregiver(String firstName, String lastName, String email) {
         FirstName = firstName;
         LastName = lastName;
         Email = email;

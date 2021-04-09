@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthTrack">
-        <activity android:name=".CargiverSignupActivity"></activity>
+        <activity android:name=".CaregiverSignupActivity"></activity>
         <activity android:name=".EditAppointmentActivity"/>
         <activity android:name=".EditPractitionerActivity"/>
         <activity android:name=".NewPractitionerActivity"/>
