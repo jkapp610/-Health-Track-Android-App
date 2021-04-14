@@ -7,19 +7,13 @@ public class Patient {
     private String Height;
     private String Weight;
    private String  Email;
+   //private  String Type;
 
     public Patient(){
 
     }
 
-    public Patient(String firstName, String lastName, String birthday, String height, String weight, String email) {
-        FirstName = firstName;
-        LastName = lastName;
-        Birthday = birthday;
-        Height = height;
-        Weight = weight;
-        Email = email;
-    }
+
 
     public String getFirstName() {
         return FirstName;
@@ -68,4 +62,8 @@ public class Patient {
     public void setEmail(String email) {
         Email = email;
     }
+
+    //public String getType(){return Type;}
+
+    //public  void  setType(String type){Type=type;}
 }

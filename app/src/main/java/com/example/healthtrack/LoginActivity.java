@@ -15,11 +15,22 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
     EditText EditTextEmail;
     EditText EditTextpassword;
-    private FirebaseAuth mAuth;
+    private FirebaseAuth myAuth;
+    private FirebaseUser user;
+    private FirebaseDatabase mydatabase;
+    private DatabaseReference myref;
+    private  String userID;
+
     Button login;
 
     @Override
@@ -29,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
      EditTextEmail= (EditText) findViewById(R.id.LoginEmail);
       EditTextpassword = (EditText) findViewById(R.id.loginPassword);
       login= (Button) findViewById(R.id.Login);
-      mAuth = FirebaseAuth.getInstance();
+      myAuth = FirebaseAuth.getInstance();
       login.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View v) {
@@ -64,12 +75,45 @@ public class LoginActivity extends AppCompatActivity {
                   return;
               }
 
-              mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+              myAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                   @Override
                   public void onComplete(@NonNull Task<AuthResult> task) {
                       if(task.isSuccessful()){
-                          Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                          startActivity(intent);
+
+                          mydatabase = FirebaseDatabase.getInstance();
+                          user= myAuth.getCurrentUser();
+                          myref= mydatabase.getReference("Patients");
+                          userID = user.getUid();
+                          myref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+                              @Override
+                              public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                  if(snapshot.exists()){
+
+
+                                      Toast.makeText(LoginActivity.this,"user is a patient",Toast.LENGTH_LONG).show();
+                                      Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                      startActivity(intent);
+
+
+                                  }
+                                  else{
+                                      Toast.makeText(LoginActivity.this,"user is a cargiver",Toast.LENGTH_LONG).show();
+                                      Intent intent = new Intent(LoginActivity.this, CaregiverMenuActivity.class);
+                                      startActivity(intent);
+                                  }
+
+                              }
+
+                              @Override
+                              public void onCancelled(@NonNull DatabaseError error) {
+                                  Toast.makeText(LoginActivity.this,"Something wrong Happened",Toast.LENGTH_LONG).show();
+
+                              }
+                          });
+
+
+
+
 
                       }
                       else {
@@ -83,6 +127,7 @@ public class LoginActivity extends AppCompatActivity {
 
           }
       });
+
 
     }
 

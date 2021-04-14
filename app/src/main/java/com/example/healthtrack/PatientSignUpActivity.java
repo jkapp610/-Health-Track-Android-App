@@ -3,6 +3,7 @@ package com.example.healthtrack;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -134,8 +135,20 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
 
                     }
                 });
+        mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Intent intent = new Intent(PatientSignUpActivity.this, MainActivity.class);
+                    startActivity(intent);
 
-    }
+                }
+
+            }
+        });
+
+
+            }
 
 
     public void Displaytoast(String f){

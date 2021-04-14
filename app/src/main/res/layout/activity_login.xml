@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="99dp"
         android:layout_marginBottom="143dp"
+        android:background="#E30707"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -55,6 +56,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="43dp"
+        android:background="#FA0C0C"
         android:onClick="onClickSignup"
         android:text="Sign up"
         app:layout_constraintBaseline_toBaselineOf="@+id/Login"

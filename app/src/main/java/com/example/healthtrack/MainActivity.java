@@ -41,13 +41,26 @@ public class MainActivity extends AppCompatActivity {
         user= myAuth.getCurrentUser();
         myref= mydatabase.getReference("Patients");
         userID = user.getUid();
-        myref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+
+        myref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Patient CurrentPatient = snapshot.getValue(Patient.class);
+                if(snapshot.hasChild(userID)){
+
+
+                   Toast.makeText(MainActivity.this,"user is a patient",Toast.LENGTH_LONG).show();
+
+
+                }
+                else{
+                    Toast.makeText(MainActivity.this,"user is a cargiver",Toast.LENGTH_LONG).show();
+                }
+               /* Patient CurrentPatient = snapshot.getValue(Patient.class);
                 String FName = CurrentPatient.getFirstName();
                 String LName = CurrentPatient.getLastName();
-                nameTxt.setText(FName+" "+LName);
+                nameTxt.setText(FName+" "+LName);*/
             }
 
             @Override
@@ -57,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        logout = (Button)  findViewById(R.id.logoutbutton);
+
         //nameTxt.setText("Billy Bob Joe"); //TODO get patient name from database
 
         logout = (Button)  findViewById(R.id.logoutbutton);
