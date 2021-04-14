@@ -44,23 +44,18 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        myref.addListenerForSingleValueEvent(new ValueEventListener() {
+        myref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if(snapshot.hasChild(userID)){
 
-
-                   Toast.makeText(MainActivity.this,"user is a patient",Toast.LENGTH_LONG).show();
-
-
-                }
-                else{
-                    Toast.makeText(MainActivity.this,"user is a cargiver",Toast.LENGTH_LONG).show();
-                }
-               /* Patient CurrentPatient = snapshot.getValue(Patient.class);
+                Patient CurrentPatient = snapshot.getValue(Patient.class);
                 String FName = CurrentPatient.getFirstName();
                 String LName = CurrentPatient.getLastName();
-                nameTxt.setText(FName+" "+LName);*/
+                nameTxt.setText(FName+" "+LName);
+
+
+
+
             }
 
             @Override

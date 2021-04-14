@@ -3,6 +3,7 @@ package com.example.healthtrack;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -92,7 +93,7 @@ public class CaregiverSignupActivity extends AppCompatActivity {
                                     newCatgiver.setLastName(Lastname);
                                     newCatgiver.setEmail(Email);
                                     FirebaseDatabase database = FirebaseDatabase.getInstance();
-                                    DatabaseReference newref = database.getReference("Cargiver");
+                                    DatabaseReference newref = database.getReference("Caregiver");
                                     newref.child(mAuth.getCurrentUser().getUid())
                                             .setValue(newCatgiver);
 
@@ -100,6 +101,17 @@ public class CaregiverSignupActivity extends AppCompatActivity {
 
                             }
                         });
+                    mAuth.signInWithEmailAndPassword(Email,Password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Intent intent = new Intent(CaregiverSignupActivity.this, CaregiverMenuActivity.class);
+                                startActivity(intent);
+
+                            }
+
+                        }
+                    });
 
 
 

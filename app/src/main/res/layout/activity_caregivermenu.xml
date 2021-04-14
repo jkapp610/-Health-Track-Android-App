@@ -105,7 +105,8 @@
         app:layout_constraintBottom_toTopOf="@+id/appointmentsBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/patientImage" /> />
+        app:layout_constraintTop_toBottomOf="@+id/patientImage" />
+    />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
