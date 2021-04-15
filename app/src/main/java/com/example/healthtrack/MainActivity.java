@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCovid(View view){
-        Intent intent = new Intent(this, CovidActivity.class);
+        Intent intent = new Intent(this, CovidandVaccinesActivity.class);
         startActivity(intent);
     }
 

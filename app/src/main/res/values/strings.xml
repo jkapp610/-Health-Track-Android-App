@@ -29,4 +29,6 @@
     <string name="hint_10">...</string>
     <string name="sw0_name">Remind me</string>
     <string name="action_settings">Settings</string>
+    <string name="find_covid_19_vaccines">Find COVID-19 Vaccines</string>
+    <string name="covid_19_risk_map">COVID-19 Risk Map</string>
 </resources>
