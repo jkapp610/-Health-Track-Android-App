@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -74,22 +75,29 @@ public class NewPractitionerActivity extends AppCompatActivity {
 
                 FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
                 DatabaseReference myref = mydatabase.getReference("Practitioner");
+                FirebaseAuth myAuth = FirebaseAuth.getInstance();
+                String currentuserID = myAuth.getCurrentUser().getUid();
                 myref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        checkifdoctorExists(doctorname,title,Address,snapshot);
+                        String mykey = checkifdoctorExists(doctorname,title,Address,snapshot);
                         if (DoesExist){
                             Log.d(TAG,"THe name:"+doctorname+"Already exist");
+                            Log.d(TAG,"The key is "+mykey);
+                            DatabaseReference myref2 = mydatabase.getReference("Patients Practitoner");
+                            myref2.child(currentuserID).child(mykey).setValue("");
 
                         }
                         else{
 
-                           String mykey =  myref.push().getKey();
-                                   myref.child(mykey).setValue(newdoc).toString();
+                            mykey =  myref.push().getKey();
+                            myref.child(mykey).setValue(newdoc);
+                            DatabaseReference myref2 = mydatabase.getReference("Patients Practitoner");
+                            myref2.child(currentuserID).child(mykey).setValue("");
 
                             Log.d(TAG,"The key is "+mykey);
 
-                            Log.d(TAG,"Checkif exist method works");
+                            Log.d(TAG,"Check if exist method works");
 
 
                         }
@@ -116,7 +124,7 @@ public class NewPractitionerActivity extends AppCompatActivity {
     }
 
     public String checkifdoctorExists(String doctorname, String title, String Address, DataSnapshot snapshot){
-        //Practitioner newdoc = new Practitioner();
+
         if(!(snapshot.exists())){
             Log.d(TAG,"Checking to see if database table exist");
             DoesExist = false;
@@ -128,7 +136,7 @@ public class NewPractitionerActivity extends AppCompatActivity {
 
 
             Practitioner newdoc = ds.getValue(Practitioner.class);
-            //newdoc.setDoctorname(ds.getValue(Practitioner.class).getDoctorname());
+
             if(newdoc.getDoctorname().equals(doctorname)){
                 if (newdoc.getTitle().equals(title)){
                     if (newdoc.getAddress().equals(Address)){
