@@ -28,6 +28,7 @@ public class NewPractitionerActivity extends AppCompatActivity {
     private EditText EditTextitle;
     private EditText EditTextAddress;
     private Button Addbutton;
+    private  boolean DoesExist;
 
 
 
@@ -76,13 +77,18 @@ public class NewPractitionerActivity extends AppCompatActivity {
                 myref.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (checkifdoctorExists(doctorname,title,Address,snapshot)){
+                        checkifdoctorExists(doctorname,title,Address,snapshot);
+                        if (DoesExist){
                             Log.d(TAG,"THe name:"+doctorname+"Already exist");
 
                         }
                         else{
 
-                            myref.push().setValue(newdoc);
+                           String mykey =  myref.push().getKey();
+                                   myref.child(mykey).setValue(newdoc).toString();
+
+                            Log.d(TAG,"The key is "+mykey);
+
                             Log.d(TAG,"Checkif exist method works");
 
 
@@ -109,28 +115,36 @@ public class NewPractitionerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public boolean checkifdoctorExists(String doctorname, String title, String Address, DataSnapshot snapshot){
+    public String checkifdoctorExists(String doctorname, String title, String Address, DataSnapshot snapshot){
         //Practitioner newdoc = new Practitioner();
         if(!(snapshot.exists())){
             Log.d(TAG,"Checking to see if database table exist");
-            return false;
+            DoesExist = false;
+            return "";
 
         }
         for (DataSnapshot ds: snapshot.getChildren()){
             Log.d(TAG,"Checking to see if snapshot exist" +ds);
+
+
             Practitioner newdoc = ds.getValue(Practitioner.class);
             //newdoc.setDoctorname(ds.getValue(Practitioner.class).getDoctorname());
             if(newdoc.getDoctorname().equals(doctorname)){
                 if (newdoc.getTitle().equals(title)){
                     if (newdoc.getAddress().equals(Address)){
-                        return true;
+                        String mykey = ds.getKey().toString();
+                        Log.d(TAG,"The key is "+mykey);
+                        DoesExist =true;
+                        return mykey;
+
                     }
                 }
 
             }
 
         }
-        return false;
+        DoesExist =false;
+        return "";
 
 
 
