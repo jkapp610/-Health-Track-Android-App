@@ -125,8 +125,8 @@ public class PatientSignUpActivity extends AppCompatActivity implements View.OnC
                             newPatient.setHeight(Height);
                             newPatient.setWeight(Weight);
                             newPatient.setEmail(Email);
-                            String userid = mAuth.getCurrentUser().getUid();
-                           // DatabaseHelper<Patient> mydatabase = new DatabaseHelper<>();
+                            //String userid = mAuth.getCurrentUser().getUid();
+                            //DatabaseHelper<Patient> mydatabase = new DatabaseHelper<>();
                             //mydatabase.Create(userid,newPatient,"Patients");
                             FirebaseDatabase database = FirebaseDatabase.getInstance();
                             DatabaseReference newref = database.getReference("Patients");
