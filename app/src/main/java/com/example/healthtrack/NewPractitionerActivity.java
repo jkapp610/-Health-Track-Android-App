@@ -44,7 +44,9 @@ public class NewPractitionerActivity extends AppCompatActivity {
         Addbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                practitionersignup();
+
+                //practitionersignup();
+
             }
 
             private void practitionersignup() {
@@ -86,6 +88,8 @@ public class NewPractitionerActivity extends AppCompatActivity {
                             Log.d(TAG,"The key is "+mykey);
                             DatabaseReference myref2 = mydatabase.getReference("Patients Practitoner");
                             myref2.child(currentuserID).child(mykey).setValue("");
+                            Intent intent = new Intent(NewPractitionerActivity.this, PractitionersActivity.class);
+                            startActivity(intent);
 
                         }
                         else{
@@ -98,6 +102,8 @@ public class NewPractitionerActivity extends AppCompatActivity {
                             Log.d(TAG,"The key is "+mykey);
 
                             Log.d(TAG,"Check if exist method works");
+                            Intent intent = new Intent(NewPractitionerActivity.this, PractitionersActivity.class);
+                            startActivity(intent);
 
 
                         }
@@ -109,6 +115,7 @@ public class NewPractitionerActivity extends AppCompatActivity {
 
                     }
                 });
+
 
 
             }

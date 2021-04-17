@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -109,7 +110,17 @@ public class EditPractitionerActivity extends AppCompatActivity {
     }
 
     public void onClickRemove(View view){
-        // TODO: remove practitioner from database
+        FirebaseAuth myAuth = FirebaseAuth.getInstance();
+        String currentuserID = myAuth.getCurrentUser().getUid();
+        FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myref = mydatabase.getReference("Patients Practitoner");
+        Log.d(TAG, "onClickRemove: the vurrent user is: "+currentuserID +" and the key is: "+key );
+        myref.child(currentuserID).child(key).removeValue();
+
+
+
+
+
 
         Intent intent = new Intent(this, PractitionersActivity.class);
         startActivity(intent);
