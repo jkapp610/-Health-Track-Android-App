@@ -95,6 +95,13 @@ public class EditPractitionerActivity extends AppCompatActivity {
             addressTxt.requestFocus();
             return;
         }
+        Practitioner updatedPractitioner = new Practitioner();
+        updatedPractitioner.setDoctorname(drname);
+        updatedPractitioner.setTitle(title);
+        updatedPractitioner.setAddress(address);
+        FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myref = mydatabase.getReference("Practitioner");
+        myref.child(key).setValue(updatedPractitioner);
 
 
         Intent intent = new Intent(this, PractitionersActivity.class);
