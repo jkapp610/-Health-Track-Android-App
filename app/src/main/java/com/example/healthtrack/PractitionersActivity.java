@@ -23,7 +23,11 @@ import java.util.List;
 public class PractitionersActivity extends AppCompatActivity {
     private  static final String TAG = "PractitionerActivity";
     private  int pract;
-
+    private String mykey1;
+    private String mykey2;
+    private String mykey3;
+    private String mykey4;
+    private String mykey5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,37 +47,37 @@ public class PractitionersActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    /*public void onClickEdit(View view){
+    public void onClickEdit(View view){
         //TODO: get actual data from the database.
         //NOTE: there is probably a much better way of doing this...
         // Pre-populate the fields on the following edit screen.
         Intent intent = new Intent(this, EditPractitionerActivity.class);
         Button btn = (Button) view;
-        PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
-        List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
+        //PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
+       //List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
         if( (Button) findViewById(R.id.pract0) == btn) {
-            intent.putExtra("key_name", pract.get(0).name);
-            intent.putExtra("key_title", pract.get(0).title);
-            intent.putExtra("key_address", pract.get(0).address);
+            intent.putExtra("key_name", mykey1);
+            //intent.putExtra("key_title", pract.get(0).title);
+            //intent.putExtra("key_address", pract.get(0).address);
         }else if( (Button) findViewById(R.id.pract1) == btn){
-            intent.putExtra("key_name",pract.get(1).name);
-            intent.putExtra("key_title",pract.get(1).title);
-            intent.putExtra("key_address",pract.get(1).address);
+            intent.putExtra("key_name",mykey2);
+            //intent.putExtra("key_title",pract.get(1).title);
+           // intent.putExtra("key_address",pract.get(1).address);
         }else if( (Button) findViewById(R.id.pract2) == btn){
-            intent.putExtra("key_name",pract.get(2).name);
-            intent.putExtra("key_title",pract.get(2).title);
-            intent.putExtra("key_address",pract.get(2).address);
+            intent.putExtra("key_name",mykey3);
+            //intent.putExtra("key_title",pract.get(2).title);
+            //intent.putExtra("key_address",pract.get(2).address);
         }else if( (Button) findViewById(R.id.pract3) == btn){
-            intent.putExtra("key_name",pract.get(3).name);
-            intent.putExtra("key_title",pract.get(3).title);
-            intent.putExtra("key_address",pract.get(3).address);
+            intent.putExtra("key_name",mykey4);
+            //intent.putExtra("key_title",pract.get(3).title);
+            //intent.putExtra("key_address",pract.get(3).address);
         }else if( (Button) findViewById(R.id.pract4) == btn){
-            intent.putExtra("key_name",pract.get(4).name);
-            intent.putExtra("key_title",pract.get(4).title);
-            intent.putExtra("key_address",pract.get(4).address);
+            intent.putExtra("key_name",mykey5);
+            //intent.putExtra("key_title",pract.get(4).title);
+            //intent.putExtra("key_address",pract.get(4).address);
         }
         startActivity(intent);
-    }*/
+    }
 
     // Just a test for now... //TODO get actual data from the database
     /*public class Practitioner {
@@ -127,21 +131,26 @@ public class PractitionersActivity extends AppCompatActivity {
                         Log.d(TAG,"The key is "+mykey);
                         if(pract ==0){
                             getpractitioner(mykey,btn0);
+                            mykey1 =mykey;
                         }
                         if (pract ==1){
                             getpractitioner(mykey,btn1);
+                            mykey2 =mykey;
 
                         }
                          if (pract ==2){
                             getpractitioner(mykey,btn2);
+                            mykey3= mykey;
 
                         }
                         if (pract ==3){
                             getpractitioner(mykey,btn3);
+                            mykey4 = mykey;
 
                         }
                     if (pract ==4){
                         getpractitioner(mykey,btn4);
+                        mykey5 =mykey;
 
                     }
 
