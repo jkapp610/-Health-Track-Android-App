@@ -45,7 +45,7 @@ public class NewPractitionerActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //practitionersignup();
+                practitionersignup();
 
             }
 
