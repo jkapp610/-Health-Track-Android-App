@@ -76,34 +76,30 @@
                 android:id="@+id/pract0"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/pract1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/pract2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/pract3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
@@ -112,7 +108,6 @@
                 android:id="@+id/pract4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
                 android:visibility="invisible" />
