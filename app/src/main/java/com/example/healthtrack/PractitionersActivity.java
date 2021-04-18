@@ -112,7 +112,7 @@ public class PractitionersActivity extends AppCompatActivity {
         FirebaseAuth myAuth = FirebaseAuth.getInstance();
         String currentuserID = myAuth.getCurrentUser().getUid();
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref = mydatabase.getReference("Patients Practitoner");
+        DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
 
         Button btn0 = (Button) findViewById(R.id.pract0);
         Button btn1 = (Button) findViewById(R.id.pract1);
@@ -125,10 +125,10 @@ public class PractitionersActivity extends AppCompatActivity {
         myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "I am here");
+                //Log.d(TAG, "I am here");
                 for (DataSnapshot ds: snapshot.getChildren()){
                      String mykey = ds.getKey();
-                        Log.d(TAG,"The key is "+mykey);
+                        //Log.d(TAG,"The key is "+mykey);
                         if(pract ==0){
                             getpractitioner(mykey,btn0);
                             mykey1 =mykey;
@@ -204,8 +204,10 @@ public class PractitionersActivity extends AppCompatActivity {
     }
     void getpractitioner(String mykey,Button button ){
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref2 = mydatabase.getReference("Practitioner");
-        myref2.child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseAuth myAuth = FirebaseAuth.getInstance();
+        String currentuserID = myAuth.getCurrentUser().getUid();
+        DatabaseReference myref2 = mydatabase.getReference("Patients Practitioner");
+        myref2.child(currentuserID).child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Practitioner userdoc = snapshot.getValue(Practitioner.class);
