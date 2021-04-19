@@ -116,7 +116,7 @@
             android:textColorHint="#FFFFFF"
             android:textSize="24sp" />
 
-        <SwitchCompact
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/remindSwitch"
             android:layout_width="226dp"
             android:layout_height="wrap_content"
