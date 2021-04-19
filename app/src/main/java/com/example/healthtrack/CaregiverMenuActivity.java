@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,66 +16,45 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class MainActivity extends AppCompatActivity {
 
-    TextView nameTxt;
+public class CaregiverMenuActivity extends AppCompatActivity {
+    TextView nametxt;
     private FirebaseUser user;
     private FirebaseDatabase mydatabase;
     private DatabaseReference myref;
     private  String userID;
 
-    private  FirebaseAuth myAuth;
-    Button logout;
-
+    private FirebaseAuth myAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_caregivermenu);
 
-        setContentView(R.layout.activity_main);
-        nameTxt = (TextView) findViewById(R.id.nameTxt);
         myAuth = FirebaseAuth.getInstance();
         mydatabase = FirebaseDatabase.getInstance();
         user= myAuth.getCurrentUser();
-        myref= mydatabase.getReference("Patients");
+        myref= mydatabase.getReference("Caregiver");
         userID = user.getUid();
-
+         nametxt= findViewById(R.id.CaregivernameTxt);
 
 
         myref.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
-                Patient CurrentPatient = snapshot.getValue(Patient.class);
-                String FName = CurrentPatient.getFirstName();
-                String LName = CurrentPatient.getLastName();
-                nameTxt.setText(FName+" "+LName);
-
-
-
-
+                Caregiver currentCaregiver = snapshot.getValue(Caregiver.class);
+                String fname = currentCaregiver.getFirstName();
+                String lname =currentCaregiver.getLastName();
+                nametxt.setText(fname+" "+lname);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(MainActivity.this,"Something wrong Happened",Toast.LENGTH_LONG).show();
 
-            }
-        });
-
-
-        //nameTxt.setText("Billy Bob Joe"); //TODO get patient name from database
-
-        logout = (Button)  findViewById(R.id.logoutbutton);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                myAuth.signOut();
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
             }
         });
     }
+
 
     public void onClickProfile(View view){
         Intent intent = new Intent(this, ProfileActivity.class);
@@ -95,9 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickCovid(View view){
-        Intent intent = new Intent(this, CovidandVaccinesActivity.class);
+        Intent intent = new Intent(this, CovidActivity.class);
         startActivity(intent);
     }
-
-
 }

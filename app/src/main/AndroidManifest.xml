@@ -15,14 +15,21 @@
         <activity android:name=".WebMapActivity" />
         <activity android:name=".NewProfileActivity" />
         <activity android:name=".NewAppointmentActivity" />
+        <activity android:name=".CaregiverMenuActivity"></activity>
+        <activity android:name=".CaregiverSignupActivity" />
         <activity android:name=".EditAppointmentActivity" />
+        <activity android:name=".EditPractitionerActivity" />
+        <activity android:name=".NewPractitionerActivity" />
+        <activity android:name=".NewProfileActivity" />
+        <activity android:name=".PatientSignUpActivity" />
+        <activity android:name=".AccounTypeActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".NewAppointmentActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".CovidActivity" />
         <activity android:name=".PractitionersActivity" />
-        <activity android:name=".NewPractitionerActivity" />
-        <activity android:name=".EditPractitionerActivity" />
         <activity android:name=".AppointmentsActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
