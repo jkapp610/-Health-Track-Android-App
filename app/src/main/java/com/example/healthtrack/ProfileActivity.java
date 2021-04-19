@@ -217,6 +217,9 @@ public class ProfileActivity extends AppCompatActivity {
 
     // Just a test for now... //TODO get actual data from the database
     private void fillConditions(){
+
+
+
         ProfileActivity.Condition condition = new ProfileActivity.Condition();
         List<ProfileActivity.Condition> cond = condition.GetItems();
         int numCond = cond.size();

@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConstraintLayout"
-    android:background="@android:color/holo_blue_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
     tools:context=".NewProfileActivity">
+
     <Button
         android:id="@+id/createBtn"
         android:layout_width="wrap_content"
@@ -55,8 +56,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="398dp"
+        android:layout_height="383dp"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="100dp"
         android:background="@android:color/black"
@@ -69,7 +70,7 @@
         <EditText
             android:id="@+id/editTxt"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="68dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_10"
@@ -80,9 +81,35 @@
             android:textSize="24sp" />
 
         <EditText
+            android:id="@+id/EditTextDose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_11"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp" />
+
+        <EditText
+            android:id="@+id/editTextDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:autofillHints=""
+            android:ems="10"
+            android:hint="@string/hint_0"
+            android:inputType="date"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#FFFFFF"
+            android:textSize="24sp" />
+
+        <EditText
             android:id="@+id/editTextTime"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_1"
@@ -93,13 +120,14 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/editTextDate"
+
+            android:id="@+id/EdittextType"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="wrap_content"
             android:autofillHints=""
             android:ems="10"
-            android:hint="@string/hint_0"
-            android:inputType="date"
+            android:hint="@string/hint_12"
+            android:inputType="text"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textColorHint="#FFFFFF"
@@ -108,7 +136,7 @@
         <Switch
             android:id="@+id/remindSwitch"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="79dp"
             android:text="@string/sw0_name"
             android:textAlignment="center"
             android:textColor="#FFFFFF"

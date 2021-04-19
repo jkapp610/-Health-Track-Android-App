@@ -28,8 +28,11 @@ public class NewProfileActivity extends AppCompatActivity {
             case "Condition":
                 textBox = findViewById(R.id.editTextTime);
                 textBox.setVisibility(View.GONE);
+                textBox = findViewById(R.id.EditTextDose);
+                textBox.setHint(getString(R.string.OpHint_11));
+                textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.editTextDate);
-                textBox.setVisibility(View.GONE);
+                textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.GONE);
                 if(intent.getBooleanExtra("key_edit",false)){
@@ -47,7 +50,7 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox = findViewById(R.id.editTextTime);
                 textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.editTextDate);
-                textBox.setVisibility(View.GONE);
+                textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.VISIBLE);
                 if(intent.getBooleanExtra("key_edit",false)){
