@@ -1,13 +1,13 @@
 package com.example.healthtrack;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Switch;
 import android.widget.TextView;
 
 public class NewProfileActivity extends AppCompatActivity {
@@ -59,7 +59,7 @@ public class NewProfileActivity extends AppCompatActivity {
                     EditText timeTxt = findViewById(R.id.editTextTime);
                     timeTxt.setText(time);
                     Boolean reminder = intent.getBooleanExtra("key_reminder",false);
-                    Switch remindSwitch = findViewById(R.id.remindSwitch);
+                    SwitchCompat remindSwitch = findViewById(R.id.remindSwitch);
                     remindSwitch.setChecked(reminder);
                     Button btn = findViewById(R.id.removeBtn);
                     btn.setVisibility(View.VISIBLE);
@@ -83,7 +83,7 @@ public class NewProfileActivity extends AppCompatActivity {
                     EditText dateTxt = findViewById(R.id.editTextDate);
                     dateTxt.setText(date);
                     Boolean reminder = intent.getBooleanExtra("key_reminder",false);
-                    Switch remindSwitch = findViewById(R.id.remindSwitch);
+                    SwitchCompat remindSwitch = findViewById(R.id.remindSwitch);
                     remindSwitch.setChecked(reminder);
                     Button btn = findViewById(R.id.removeBtn);
                     btn.setVisibility(View.VISIBLE);

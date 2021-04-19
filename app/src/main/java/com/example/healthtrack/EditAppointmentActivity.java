@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Switch;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 public class EditAppointmentActivity extends AppCompatActivity {
 
@@ -31,11 +31,11 @@ public class EditAppointmentActivity extends AppCompatActivity {
         String time = intent.getStringExtra("key_time");
         Boolean reminder = intent.getBooleanExtra("key_reminder",false);
         for(int i = 0; i < adapter.getCount(); i++) if(practitioner.equals(adapter.getItem(i))) spin.setSelection(i);
-        EditText dateTxt = findViewById(R.id.conditionTitle);
+        EditText dateTxt = findViewById(R.id.dateTxt);
         dateTxt.setText(date);
         EditText timeTxt = findViewById(R.id.timeTxt);
         timeTxt.setText(time);
-        Switch remindSwitch = findViewById(R.id.remindSwitch);
+        SwitchCompat remindSwitch = findViewById(R.id.remindSwitch);
         remindSwitch.setChecked(reminder);
     }
 

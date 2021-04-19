@@ -91,7 +91,7 @@
             android:textSize="24sp" />
 
         <EditText
-            android:id="@+id/conditionTitle"
+            android:id="@+id/dateTxt"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:autofillHints=""
@@ -116,7 +116,7 @@
             android:textColorHint="#FFFFFF"
             android:textSize="24sp" />
 
-        <Switch
+        <SwitchCompact
             android:id="@+id/remindSwitch"
             android:layout_width="226dp"
             android:layout_height="wrap_content"
