@@ -79,7 +79,7 @@
                 android:onClick="onClickEdit"
                 android:text=""
                 android:textSize="24sp"
-                android:visibility="visible" />
+                android:visibility="invisible" />
 
             <Button
                 android:id="@+id/appt1"

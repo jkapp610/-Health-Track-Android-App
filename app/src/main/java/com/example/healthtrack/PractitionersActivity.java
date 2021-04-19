@@ -22,7 +22,7 @@ import java.util.List;
 
 public class PractitionersActivity extends AppCompatActivity {
     private  static final String TAG = "PractitionerActivity";
-    private  int pract;
+    private  int pract =0;
     private String mykey1;
     private String mykey2;
     private String mykey3;
