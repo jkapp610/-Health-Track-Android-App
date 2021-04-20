@@ -17,7 +17,6 @@
         android:layout_marginBottom="16dp"
         android:onClick="onClickCreate"
         android:text="@string/but5_name"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.516"
@@ -47,7 +46,6 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="111dp"
         android:layout_marginBottom="574dp"
-        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="100dp"
-        android:background="@android:color/black"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,11 +71,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_10"
-            android:inputType="text"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:inputType="text" />
 
         <EditText
             android:id="@+id/editTextTime"
@@ -86,11 +80,7 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_1"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:inputType="time" />
 
         <EditText
             android:id="@+id/editTextDate"
@@ -99,21 +89,13 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_0"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:inputType="date" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/remindSwitch"
             android:layout_width="match_parent"
             android:layout_height="100dp"
-            android:text="@string/sw0_name"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            android:text="@string/sw0_name" />
 
         <Button
             android:id="@+id/removeBtn"
@@ -121,7 +103,6 @@
             android:layout_height="wrap_content"
             android:onClick="onClickRemove"
             android:text="@string/but8_name"
-            android:textSize="24sp"
             android:visibility="gone" />
 
     </LinearLayout>

@@ -15,7 +15,6 @@
         android:layout_marginStart="32dp"
         android:onClick="onClickRemove"
         android:text="@string/but8_name"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -29,7 +28,6 @@
         android:layout_marginEnd="18dp"
         android:onClick="onClickCreate"
         android:text="@string/but7_name"
-        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -61,7 +59,6 @@
         android:layout_marginEnd="111dp"
         android:layout_marginBottom="574dp"
         android:text="@string/title_2"
-        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="200dp"
         android:layout_marginBottom="100dp"
-        android:background="@android:color/black"
+        android:background="@android:color/white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,25 +80,16 @@
         <Spinner
             android:id="@+id/practitionerList"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:hint="@string/hint_2"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:layout_height="100dp" />
 
         <EditText
-            android:id="@+id/conditionTitle"
+            android:id="@+id/dateTxt"
             android:layout_width="match_parent"
             android:layout_height="100dp"
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_0"
-            android:inputType="date"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:inputType="date" />
 
         <EditText
             android:id="@+id/timeTxt"
@@ -110,13 +98,9 @@
             android:autofillHints=""
             android:ems="10"
             android:hint="@string/hint_1"
-            android:inputType="time"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textColorHint="#FFFFFF"
-            android:textSize="24sp" />
+            android:inputType="time" />
 
-        <Switch
+        <androidx.appcompat.widget.SwitchCompat
             android:id="@+id/remindSwitch"
             android:layout_width="226dp"
             android:layout_height="wrap_content"
@@ -124,10 +108,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginEnd="162dp"
             android:layout_marginBottom="20dp"
-            android:text="@string/sw0_name"
-            android:textSize="24sp"
-            android:textColor="#FFFFFF"
-            tools:ignore="UseSwitchCompatOrMaterialXml" />
+            android:text="@string/sw0_name" />
 
     </LinearLayout>
 
