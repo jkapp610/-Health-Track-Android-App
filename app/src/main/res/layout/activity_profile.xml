@@ -32,7 +32,6 @@
         android:layout_marginEnd="111dp"
         android:layout_marginBottom="574dp"
         android:text="@string/title_6"
-        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,7 +51,7 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black"
+            android:background="@android:color/white"
             android:orientation="vertical">
 
             <TextView
@@ -61,11 +60,7 @@
                 android:layout_height="50dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:text="@string/hint_6"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:text="@string/hint_6"/>
 
             <Button
                 android:id="@+id/cond0"
@@ -75,10 +70,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="visible" />
 
             <Button
@@ -89,10 +81,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -103,10 +92,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -117,10 +103,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -131,10 +114,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <TextView
@@ -143,11 +123,7 @@
                 android:layout_height="50dp"
                 android:autofillHints=""
                 android:ems="10"
-                android:text="@string/hint_8"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:text="@string/hint_8" />
 
             <Button
                 android:id="@+id/pres0"
@@ -157,10 +133,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="visible" />
 
             <Button
@@ -171,10 +144,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -185,10 +155,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -199,10 +166,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -213,10 +177,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <TextView
@@ -224,11 +185,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:ems="10"
-                android:text="@string/hint_9"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:text="@string/hint_9" />
 
             <Button
                 android:id="@+id/vacc0"
@@ -238,10 +195,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="visible" />
 
             <Button
@@ -252,10 +206,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -266,10 +217,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -280,10 +228,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
             <Button
@@ -294,10 +239,7 @@
                 android:ems="10"
                 android:hint="@string/hint_7"
                 android:onClick="onClickBtn"
-                android:textAlignment="center"
-                android:textColor="#FFFFFF"
                 android:textColorHint="#00FF00"
-                android:textSize="24sp"
                 android:visibility="gone" />
 
         </LinearLayout>
