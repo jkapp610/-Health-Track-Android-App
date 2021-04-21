@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -30,6 +31,9 @@ public class NewPractitionerActivity extends AppCompatActivity {
     private EditText EditTextAddress;
     private Button Addbutton;
     private  boolean DoesExist;
+    FirebaseAuth myAuth = FirebaseAuth.getInstance();
+    String currentuserID = myAuth.getCurrentUser().getUid();
+    FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
 
 
 
@@ -75,39 +79,44 @@ public class NewPractitionerActivity extends AppCompatActivity {
                 newdoc.setTitle(title);
                 newdoc.setAddress(Address);
 
-                FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-                DatabaseReference myref = mydatabase.getReference("Practitioner");
-                FirebaseAuth myAuth = FirebaseAuth.getInstance();
-                String currentuserID = myAuth.getCurrentUser().getUid();
-                myref.addListenerForSingleValueEvent(new ValueEventListener() {
+                //FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+                DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
+                //FirebaseAuth myAuth = FirebaseAuth.getInstance();
+               //String currentuserID = myAuth.getCurrentUser().getUid();
+                myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String mykey = checkifdoctorExists(doctorname,title,Address,snapshot);
-                        if (DoesExist){
-                            Log.d(TAG,"THe name:"+doctorname+"Already exist");
-                            Log.d(TAG,"The key is "+mykey);
-                            DatabaseReference myref2 = mydatabase.getReference("Patients Practitoner");
-                            myref2.child(currentuserID).child(mykey).setValue("");
+                        if(checkifdoctorExists(doctorname,title,Address,snapshot)){
+                            Addbutton.setError("Practitioner already in databaes");
+
                             Intent intent = new Intent(NewPractitionerActivity.this, PractitionersActivity.class);
                             startActivity(intent);
 
                         }
                         else{
-
-                            mykey =  myref.push().getKey();
-                            myref.child(mykey).setValue(newdoc);
-                            DatabaseReference myref2 = mydatabase.getReference("Patients Practitoner");
-                            myref2.child(currentuserID).child(mykey).setValue("");
-
-                            Log.d(TAG,"The key is "+mykey);
-
-                            Log.d(TAG,"Check if exist method works");
+                           String mykey = myref.push().getKey();
+                           //DatabaseReference myref2 = mydatabase.getReference("Patient Practitioner");
+                           myref.child(currentuserID).child(mykey).setValue(newdoc);
                             Intent intent = new Intent(NewPractitionerActivity.this, PractitionersActivity.class);
                             startActivity(intent);
-
-
                         }
+
+
+
                     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     @Override
@@ -130,39 +139,30 @@ public class NewPractitionerActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public String checkifdoctorExists(String doctorname, String title, String Address, DataSnapshot snapshot){
-
-        if(!(snapshot.exists())){
+    public boolean checkifdoctorExists(String doctorname, String title, String Address, DataSnapshot snapshot){
+        Log.d(TAG,"Checking method called");
+       /* if(!(snapshot.exists())){
             Log.d(TAG,"Checking to see if database table exist");
             DoesExist = false;
-            return "";
+            return false;
 
-        }
-        for (DataSnapshot ds: snapshot.getChildren()){
-            Log.d(TAG,"Checking to see if snapshot exist" +ds);
-
-
+        }*/
+        for (DataSnapshot ds :snapshot.getChildren()){
             Practitioner newdoc = ds.getValue(Practitioner.class);
-
             if(newdoc.getDoctorname().equals(doctorname)){
                 if (newdoc.getTitle().equals(title)){
                     if (newdoc.getAddress().equals(Address)){
                         String mykey = ds.getKey().toString();
-                        Log.d(TAG,"The key is "+mykey);
+                        //Log.d(TAG,"The key is "+mykey);
                         DoesExist =true;
-                        return mykey;
+                        return true;
 
                     }
                 }
 
             }
-
         }
-        DoesExist =false;
-        return "";
-
-
-
+        return false;
     }
 
     public void onClickCreate(View view){

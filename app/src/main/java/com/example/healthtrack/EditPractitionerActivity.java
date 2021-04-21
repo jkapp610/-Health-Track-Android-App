@@ -43,8 +43,10 @@ public class EditPractitionerActivity extends AppCompatActivity {
         titleTxt = (EditText) findViewById(R.id.titleTxt);
          addressTxt = (EditText) findViewById(R.id.addressTxt);
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref2 = mydatabase.getReference("Practitioner");
-        myref2.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseAuth myAuth = FirebaseAuth.getInstance();
+        String currentuserID = myAuth.getCurrentUser().getUid();
+        DatabaseReference myref2 = mydatabase.getReference("Patients Practitioner");
+        myref2.child(currentuserID).child(key).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Practitioner userdoc = snapshot.getValue(Practitioner.class);
@@ -100,9 +102,11 @@ public class EditPractitionerActivity extends AppCompatActivity {
         updatedPractitioner.setDoctorname(drname);
         updatedPractitioner.setTitle(title);
         updatedPractitioner.setAddress(address);
+        FirebaseAuth myAuth = FirebaseAuth.getInstance();
+        String currentuserID = myAuth.getCurrentUser().getUid();
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref = mydatabase.getReference("Practitioner");
-        myref.child(key).setValue(updatedPractitioner);
+        DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
+        myref.child(currentuserID).child(key).setValue(updatedPractitioner);
 
 
         Intent intent = new Intent(this, PractitionersActivity.class);
@@ -113,7 +117,7 @@ public class EditPractitionerActivity extends AppCompatActivity {
         FirebaseAuth myAuth = FirebaseAuth.getInstance();
         String currentuserID = myAuth.getCurrentUser().getUid();
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref = mydatabase.getReference("Patients Practitoner");
+        DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
         Log.d(TAG, "onClickRemove: the vurrent user is: "+currentuserID +" and the key is: "+key );
         myref.child(currentuserID).child(key).removeValue();
 

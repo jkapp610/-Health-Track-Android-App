@@ -116,7 +116,6 @@
                 android:onClick="onClickBtn"
                 android:textColorHint="#00FF00"
                 android:visibility="gone" />
-
             <TextView
                 android:id="@+id/prescriptionsTitle"
                 android:layout_width="match_parent"

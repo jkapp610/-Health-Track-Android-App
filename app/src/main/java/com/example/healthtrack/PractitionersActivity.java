@@ -28,6 +28,8 @@ public class PractitionersActivity extends AppCompatActivity {
     private String mykey3;
     private String mykey4;
     private String mykey5;
+    FirebaseAuth myAuth = FirebaseAuth.getInstance();
+    String currentuserID = myAuth.getCurrentUser().getUid();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +56,7 @@ public class PractitionersActivity extends AppCompatActivity {
         Intent intent = new Intent(this, EditPractitionerActivity.class);
         Button btn = (Button) view;
         //PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
-       //List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
+        //List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
         if( (Button) findViewById(R.id.pract0) == btn) {
             intent.putExtra("key_name", mykey1);
             //intent.putExtra("key_title", pract.get(0).title);
@@ -62,7 +64,7 @@ public class PractitionersActivity extends AppCompatActivity {
         }else if( (Button) findViewById(R.id.pract1) == btn){
             intent.putExtra("key_name",mykey2);
             //intent.putExtra("key_title",pract.get(1).title);
-           // intent.putExtra("key_address",pract.get(1).address);
+            // intent.putExtra("key_address",pract.get(1).address);
         }else if( (Button) findViewById(R.id.pract2) == btn){
             intent.putExtra("key_name",mykey3);
             //intent.putExtra("key_title",pract.get(2).title);
@@ -84,25 +86,19 @@ public class PractitionersActivity extends AppCompatActivity {
         private String name;
         private String title;
         private String address;
-
         public Practitioner() {
-
         }
-
         public Practitioner(String name, String title, String address) {
             this.name = name;
             this.title = title;
             this.address = address;
         }
-
         public List<PractitionersActivity.Practitioner> GetItems() {
             List<PractitionersActivity.Practitioner> lstItems = new ArrayList<PractitionersActivity.Practitioner>();
-
             lstItems.add(new PractitionersActivity.Practitioner("Dr. Hilton","Primary Care Physician","1234 Tree Dr. MI"));
             lstItems.add(new PractitionersActivity.Practitioner("Dr. Sparks","Dentist","4567 Flower Ct. MI"));
             lstItems.add(new PractitionersActivity.Practitioner("Dr. Allison","Therapist","CIS/CSC 483"));
             lstItems.add(new PractitionersActivity.Practitioner("Dr. Varde","Neurologist","89 Waterway Blvd. MI"));
-
             return lstItems;
         }
     }*/
@@ -112,7 +108,7 @@ public class PractitionersActivity extends AppCompatActivity {
         FirebaseAuth myAuth = FirebaseAuth.getInstance();
         String currentuserID = myAuth.getCurrentUser().getUid();
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref = mydatabase.getReference("Patients Practitoner");
+        DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
 
         Button btn0 = (Button) findViewById(R.id.pract0);
         Button btn1 = (Button) findViewById(R.id.pract1);
@@ -127,27 +123,27 @@ public class PractitionersActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.d(TAG, "I am here");
                 for (DataSnapshot ds: snapshot.getChildren()){
-                     String mykey = ds.getKey();
-                        Log.d(TAG,"The key is "+mykey);
-                        if(pract ==0){
-                            getpractitioner(mykey,btn0);
-                            mykey1 =mykey;
-                        }
-                        if (pract ==1){
-                            getpractitioner(mykey,btn1);
-                            mykey2 =mykey;
+                    String mykey = ds.getKey();
+                    Log.d(TAG,"The key is "+mykey);
+                    if(pract ==0){
+                        getpractitioner(mykey,btn0);
+                        mykey1 =mykey;
+                    }
+                    if (pract ==1){
+                        getpractitioner(mykey,btn1);
+                        mykey2 =mykey;
 
-                        }
-                         if (pract ==2){
-                            getpractitioner(mykey,btn2);
-                            mykey3= mykey;
+                    }
+                    if (pract ==2){
+                        getpractitioner(mykey,btn2);
+                        mykey3= mykey;
 
-                        }
-                        if (pract ==3){
-                            getpractitioner(mykey,btn3);
-                            mykey4 = mykey;
+                    }
+                    if (pract ==3){
+                        getpractitioner(mykey,btn3);
+                        mykey4 = mykey;
 
-                        }
+                    }
                     if (pract ==4){
                         getpractitioner(mykey,btn4);
                         mykey5 =mykey;
@@ -156,7 +152,7 @@ public class PractitionersActivity extends AppCompatActivity {
 
 
 
-                       pract = pract+1;
+                    pract = pract+1;
 
                 }
 
@@ -171,31 +167,26 @@ public class PractitionersActivity extends AppCompatActivity {
         /*PractitionersActivity.Practitioner practitioner = new PractitionersActivity.Practitioner();
         List<PractitionersActivity.Practitioner> pract = practitioner.GetItems();
         int numPract = pract.size();
-
         Button btn0 = (Button) findViewById(R.id.pract0);
         if(numPract > 0) {
             btn0.setText(pract.get(0).name + "\n" + pract.get(0).title + "\n" + pract.get(0).address);
             btn0.setVisibility(View.VISIBLE);
         }else btn0.setVisibility(View.INVISIBLE);
-
         Button btn1 = (Button) findViewById(R.id.pract1);
         if(numPract > 1) {
             btn1.setText(pract.get(1).name + "\n" + pract.get(1).title + "\n" + pract.get(1).address);
             btn1.setVisibility(View.VISIBLE);
         }else btn1.setVisibility(View.INVISIBLE);
-
         Button btn2 = (Button) findViewById(R.id.pract2);
         if(numPract > 2) {
             btn2.setText(pract.get(2).name + "\n" + pract.get(2).title + "\n" + pract.get(2).address);
             btn2.setVisibility(View.VISIBLE);
         }else btn2.setVisibility(View.INVISIBLE);
-
         Button btn3 = (Button) findViewById(R.id.pract3);
         if(numPract > 3) {
             btn3.setText(pract.get(3).name + "\n" + pract.get(3).title + "\n" + pract.get(3).address);
             btn3.setVisibility(View.VISIBLE);
         }else btn3.setVisibility(View.INVISIBLE);
-
         Button btn4 = (Button) findViewById(R.id.pract4);
         if(numPract > 4) {
             btn4.setText(pract.get(4).name + "\n" + pract.get(4).title + "\n" + pract.get(4).address);
@@ -204,8 +195,8 @@ public class PractitionersActivity extends AppCompatActivity {
     }
     void getpractitioner(String mykey,Button button ){
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myref2 = mydatabase.getReference("Practitioner");
-        myref2.child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference myref2 = mydatabase.getReference("Patients Practitioner");
+        myref2.child(currentuserID).child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Practitioner userdoc = snapshot.getValue(Practitioner.class);
