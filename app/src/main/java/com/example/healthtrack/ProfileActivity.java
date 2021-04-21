@@ -179,58 +179,55 @@ public class ProfileActivity extends AppCompatActivity {
 
         }
         else if((Button) findViewById(R.id.pres4) == btn) {
-            intent.putExtra("key_type", "Prescription");
-            intent.putExtra("key_data",Presmykey4);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
                 Log.d(TAG, "clicked on ADD" );
+                intent.putExtra("key_data",presmykey3);
 
             }
+            intent.putExtra("key_type", "Prescription");
         }
         else if((Button) findViewById(R.id.vacc0) == btn) {
-            intent.putExtra("key_type", "Vaccine");
-            intent.putExtra("key_data",vacmykey0);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
-                Log.d(TAG, "clicked on ADD" );
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",vacmykey0);
 
             }
+            intent.putExtra("key_type", "Vaccine");
+
         }
         else if((Button) findViewById(R.id.vacc1) == btn) {
-            intent.putExtra("key_type", "Vaccine");
-            intent.putExtra("key_data",vacmykey1);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
-                Log.d(TAG, "clicked on ADD" );
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",vacmykey1);
 
             }
+            intent.putExtra("key_type", "Vaccine");
         }
         else if((Button) findViewById(R.id.vacc2) == btn) {
-            intent.putExtra("key_type", "Vaccine");
-            intent.putExtra("key_data",vacmykey2);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
-                Log.d(TAG, "clicked on ADD" );
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",vacmykey2);
 
             }
+            intent.putExtra("key_type", "Vaccine");
         }
         else if((Button) findViewById(R.id.vacc3) == btn) {
-            intent.putExtra("key_type", "Vaccine");
-            intent.putExtra("key_data",vacmykey3);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
-                Log.d(TAG, "clicked on ADD" );
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",vacmykey3);
 
             }
+            intent.putExtra("key_type", "Vaccine");
         }
         else if((Button) findViewById(R.id.vacc4) == btn) {
-            intent.putExtra("key_type", "Vaccine");
-            intent.putExtra("key_data",vacmykey4);
-            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
-                intent.putExtra("key_edit", false);
-                Log.d(TAG, "clicked on ADD" );
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",vacmykey4);
 
             }
+            intent.putExtra("key_type", "Vaccine");
         }
 
 

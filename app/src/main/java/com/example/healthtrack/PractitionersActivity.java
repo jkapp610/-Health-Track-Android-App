@@ -114,7 +114,7 @@ public class PractitionersActivity extends AppCompatActivity {
         FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
         DatabaseReference myref = mydatabase.getReference("Patients Practitioner");
 
-        Button btn0 = (Button) findViewById(R.id.pract0);
+        Button btn0 = (Button) findViewById(R.id.pres0);
         Button btn1 = (Button) findViewById(R.id.pract1);
         Button btn2 = (Button) findViewById(R.id.pract2);
         Button btn3 = (Button) findViewById(R.id.pract3);

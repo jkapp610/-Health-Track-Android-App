@@ -27,6 +27,7 @@ public class AppointmentsActivity extends AppCompatActivity {
     FirebaseAuth myAuth = FirebaseAuth.getInstance();
     String currentuserID = myAuth.getCurrentUser().getUid();
     FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+
     DatabaseReference myref = mydatabase.getReference("Appointments");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,7 @@ public class AppointmentsActivity extends AppCompatActivity {
         // Pre-populate the fields on the following edit screen.
         Intent intent = new Intent(this, EditAppointmentActivity.class);
         Button btn = (Button) view;
+
         String text = btn.getText().toString();
 
         String[] array = text.split("\n");
