@@ -37,7 +37,7 @@ public class ProfileActivity extends AppCompatActivity {
     private String presmykey1;
     private String presmykey2;
     private String presmykey3;
-    private String Presmykey4;
+    private String presmykey4;
     private String vacmykey0;
     private String vacmykey1;
     private String vacmykey2;
@@ -182,7 +182,7 @@ public class ProfileActivity extends AppCompatActivity {
             if (!(btn.getText().toString().isEmpty())) {
                 intent.putExtra("key_edit", true);
                 Log.d(TAG, "clicked on ADD" );
-                intent.putExtra("key_data",presmykey3);
+                intent.putExtra("key_data",presmykey4);
 
             }
             intent.putExtra("key_type", "Prescription");
@@ -622,7 +622,7 @@ public class ProfileActivity extends AppCompatActivity {
                         btn4.setVisibility(View.VISIBLE);
                     }
                     if( numpres == 4){
-                        Presmykey4= mykey;
+                        presmykey4= mykey;
                         getcondition(mykey,btn4);
 
                     }
