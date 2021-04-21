@@ -51,8 +51,9 @@ public class EditAppointmentActivity extends AppCompatActivity {
         timetxt = (EditText) findViewById(R.id.timeTxt);
         Datetxt.setText(date);
         timetxt.setText(time);
-        /*SwitchCompat remindSwitch = findViewById(R.id.remindSwitch);
-        remindSwitch.setChecked(reminder);*/
+        boolean reminder = false;
+        SwitchCompat remindSwitch = findViewById(R.id.remindSwitch);
+        remindSwitch.setChecked(reminder);
 
         Log.d(TAG,"THIS IS outside"+ outside );
 
