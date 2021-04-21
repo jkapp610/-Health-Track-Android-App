@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/ConstraintLayout"
-    android:background="@android:color/holo_blue_light"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
     tools:context=".EditPractitionerActivity">
 
     <Button
@@ -83,9 +83,9 @@
             android:layout_height="100dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/hint_3"
             android:inputType="textPersonName"
-            android:text=""
-            android:hint="@string/hint_3" />
+            android:text="" />
 
         <EditText
             android:id="@+id/titleTxt"
@@ -93,9 +93,9 @@
             android:layout_height="100dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/hint_4"
             android:inputType="textPersonName"
-            android:text=""
-            android:hint="@string/hint_4" />
+            android:text="" />
 
         <EditText
             android:id="@+id/addressTxt"
@@ -103,10 +103,22 @@
             android:layout_height="100dp"
             android:autofillHints=""
             android:ems="10"
+            android:hint="@string/hint_5"
             android:inputType="textPostalAddress"
-            android:text=""
-            android:hint="@string/hint_5" />
+            android:text="" />
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="134dp"
+        android:layout_height="113dp"
+        android:layout_marginStart="138dp"
+        android:layout_marginEnd="139dp"
+        android:layout_marginBottom="609dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

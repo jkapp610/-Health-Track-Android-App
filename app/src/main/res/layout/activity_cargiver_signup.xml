@@ -10,10 +10,13 @@
         android:id="@+id/cSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="132dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="567dp"
         android:text="Caregiver Sign Up"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,60 +24,91 @@
         android:id="@+id/CaregiverFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="47dp"
+        android:layout_marginStart="66dp"
+        android:layout_marginTop="228dp"
+        android:layout_marginEnd="67dp"
+        android:layout_marginBottom="471dp"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cSignup" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/CargiverLastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="302dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="397dp"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cSignup" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/CargiverEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="372dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="381dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="318dp"
         android:ems="10"
-        android:hint="Emai"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/CargiverPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="67dp"
+        android:layout_marginTop="465dp"
+        android:layout_marginEnd="66dp"
+        android:layout_marginBottom="234dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        app:layout_constraintStart_toStartOf="@+id/CargiverEmail"
-        app:layout_constraintTop_toBottomOf="@+id/CargiverEmail" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/SignupButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="139dp"
+        android:layout_marginTop="544dp"
+        android:layout_marginEnd="141dp"
+        android:layout_marginBottom="135dp"
         android:text="Signup"
-        app:layout_constraintStart_toStartOf="@+id/CargiverPassword"
-        app:layout_constraintTop_toBottomOf="@+id/CargiverPassword" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="144dp"
+        android:layout_height="130dp"
+        android:layout_marginStart="133dp"
+        android:layout_marginEnd="134dp"
+        android:layout_marginBottom="599dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

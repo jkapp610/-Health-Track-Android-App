@@ -10,31 +10,57 @@
         android:id="@+id/AccountText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="149dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginTop="197dp"
+        android:layout_marginEnd="133dp"
+        android:layout_marginBottom="502dp"
         android:text="Account Type"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/CargiverButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="82dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="300dp"
+        android:layout_marginEnd="116dp"
+        android:layout_marginBottom="379dp"
         android:onClick="onClickCaregiver"
         android:text="Caregiver"
-        app:layout_constraintBottom_toTopOf="@+id/PatientButton"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/PatientButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="3dp"
+        android:layout_marginStart="134dp"
+        android:layout_marginTop="451dp"
+        android:layout_marginEnd="135dp"
+        android:layout_marginBottom="228dp"
         android:onClick="onClickPatient"
         android:text="Patient"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/CargiverButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="165dp"
+        android:layout_height="167dp"
+        android:layout_marginStart="123dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="123dp"
+        android:layout_marginBottom="559dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
