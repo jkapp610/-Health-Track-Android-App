@@ -2,6 +2,7 @@ package com.example.healthtrack;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +12,6 @@ import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Switch;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -88,7 +88,7 @@ public class NewAppointmentActivity extends AppCompatActivity {
               Display_Practitioners_name();
               return;
           }
-        Switch Reminder = (Switch) findViewById(R.id.remindSwitch);
+        SwitchCompat Reminder = (SwitchCompat) findViewById(R.id.remindSwitch);
           Reminder.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
               @Override
               public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -126,12 +126,15 @@ public class NewAppointmentActivity extends AppCompatActivity {
                          }
                      }
                  if(doesexist){
-
+                     Intent intent = new Intent(NewAppointmentActivity.this, AppointmentsActivity.class);
+                     startActivity(intent);
                  }
                  else{
                      String mykey = myref.push().getKey();
                      myref.child(currentuserID).child(mykey).setValue(newAppointment);
 
+                     Intent intent = new Intent(NewAppointmentActivity.this, AppointmentsActivity.class);
+                     startActivity(intent);
                  }
 
              }
@@ -143,14 +146,8 @@ public class NewAppointmentActivity extends AppCompatActivity {
 
              }
          });
-
-
-
-
-
-        //Intent intent = new Intent(this, AppointmentsActivity.class);
-        //startActivity(intent);
     }
+
     private void Display_Practitioners_name(){
         String[] practitioners = { "SELECT DOCTOR", " ", " ", " ", " "," " };
 
