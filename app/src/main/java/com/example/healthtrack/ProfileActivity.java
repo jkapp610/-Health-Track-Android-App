@@ -626,7 +626,7 @@ public class ProfileActivity extends AppCompatActivity {
                         getcondition(mykey,btn4);
 
                     }
-                    numcond =numcond+1;
+                    numpres =numpres+1;
 
 
                 }
