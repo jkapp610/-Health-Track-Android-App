@@ -1,18 +1,48 @@
 package com.example.healthtrack;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity {
+    FirebaseAuth myAuth = FirebaseAuth.getInstance();
+    String currentuserID = myAuth.getCurrentUser().getUid();
+    private  static final String TAG = "ProfileActivity";
+    private  int numcond;
+    private  int numvac;
+    private  int numpres;
 
+    FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+    private String Condmykey0;
+    private String Condmykey1;
+    private String Condmykey2;
+    private String Condmykey3;
+    private String Condmykey4;
+    private String presmykey0;
+    private String presmykey1;
+    private String presmykey2;
+    private String presmykey3;
+    private String Presmykey4;
+    private String vacmykey0;
+    private String vacmykey1;
+    private String vacmykey2;
+    private String vacmykey3;
+    private String vacmykey4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +66,180 @@ public class ProfileActivity extends AppCompatActivity {
         Button btn = (Button) view;
         Intent intent = new Intent(this, NewProfileActivity.class);
 
-        ProfileActivity.Condition condition = new ProfileActivity.Condition();
-        List<ProfileActivity.Condition> cond = condition.GetItems();
+
+
+
+
+
+
+        if((Button) findViewById(R.id.cond0) == btn){
+
+            if (!btn.getText().toString().isEmpty()) {
+                intent.putExtra("key_edit", true);
+                //Condmykey0= "null";
+                intent.putExtra("key_data",Condmykey0);
+
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+            intent.putExtra("key_type","Condition");
+
+
+
+
+        }
+       else if((Button) findViewById(R.id.cond1) == btn){
+
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                Log.d(TAG, "clicked on ADD" );
+                //Condmykey1 = "null";
+                intent.putExtra("key_data",Condmykey1);
+
+            }
+            intent.putExtra("key_type","Condition");
+
+
+
+        }
+       else if((Button) findViewById(R.id.cond2) == btn){
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",Condmykey2);
+
+
+            }
+            intent.putExtra("key_type","Condition");
+
+
+        }
+        else if((Button) findViewById(R.id.cond3) == btn){
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+
+                intent.putExtra("key_data",Condmykey3);
+            }
+            intent.putExtra("key_type","Condition");
+
+        }
+        else if((Button) findViewById(R.id.cond4) == btn){
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",Condmykey4);
+            }
+            intent.putExtra("key_type","Condition");
+
+        }
+        else if((Button) findViewById(R.id.pres0) == btn) {
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",presmykey0);
+            }
+            intent.putExtra("key_type", "Prescription");
+
+
+        }
+        else if((Button) findViewById(R.id.pres1) == btn) {
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                intent.putExtra("key_data",presmykey1);
+            }
+            intent.putExtra("key_type", "Prescription");
+
+        }
+        else if((Button) findViewById(R.id.pres2) == btn) {
+
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+
+                intent.putExtra("key_data",presmykey2);
+
+            }
+            intent.putExtra("key_type", "Prescription");
+
+
+        }
+        else if((Button) findViewById(R.id.pres3) == btn) {
+
+            if (!(btn.getText().toString().isEmpty())) {
+                intent.putExtra("key_edit", true);
+                Log.d(TAG, "clicked on ADD" );
+                intent.putExtra("key_data",presmykey3);
+
+            }
+            intent.putExtra("key_type", "Prescription");
+
+
+        }
+        else if((Button) findViewById(R.id.pres4) == btn) {
+            intent.putExtra("key_type", "Prescription");
+            intent.putExtra("key_data",Presmykey4);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+        else if((Button) findViewById(R.id.vacc0) == btn) {
+            intent.putExtra("key_type", "Vaccine");
+            intent.putExtra("key_data",vacmykey0);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+        else if((Button) findViewById(R.id.vacc1) == btn) {
+            intent.putExtra("key_type", "Vaccine");
+            intent.putExtra("key_data",vacmykey1);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+        else if((Button) findViewById(R.id.vacc2) == btn) {
+            intent.putExtra("key_type", "Vaccine");
+            intent.putExtra("key_data",vacmykey2);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+        else if((Button) findViewById(R.id.vacc3) == btn) {
+            intent.putExtra("key_type", "Vaccine");
+            intent.putExtra("key_data",vacmykey3);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+        else if((Button) findViewById(R.id.vacc4) == btn) {
+            intent.putExtra("key_type", "Vaccine");
+            intent.putExtra("key_data",vacmykey4);
+            if (btn.getText().toString().equals(getString(R.string.hint_7))) {
+                intent.putExtra("key_edit", false);
+                Log.d(TAG, "clicked on ADD" );
+
+            }
+        }
+
+
+        startActivity(intent);
+
+
+
+        //ProfileActivity.Condition condition = new ProfileActivity.Condition();
+        /*List<ProfileActivity.Condition> cond = condition.GetItems();
         int numCond = cond.size();
         ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
@@ -75,7 +277,7 @@ public class ProfileActivity extends AppCompatActivity {
             if(numCond > 3) {
                 if (!cond.get(3).name.equals(null)) {
                     intent.putExtra("key_edit", true);
-                    intent.putExtra("key_name", cond.get(3).name);
+                    intent.putExtra("key_name", cond.get(3).);
                 }
             }
         }else if((Button) findViewById(R.id.cond4) == btn){
@@ -187,11 +389,11 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             }
         }
-        startActivity(intent);
+        startActivity(intent);*/
     }
 
     // Just a test for now... //TODO get actual data from the database
-    public class Condition {
+    /*public class Condition {
         private String name;
 
         public Condition() {
@@ -203,7 +405,7 @@ public class ProfileActivity extends AppCompatActivity {
         }
 
         public List<ProfileActivity.Condition> GetItems() {
-            List<ProfileActivity.Condition> lstItems = new ArrayList<ProfileActivity.Condition>();
+          List<ProfileActivity.Condition> lstItems = new ArrayList<ProfileActivity.Condition>();
 
             lstItems.add(new ProfileActivity.Condition("Asthma"));
             lstItems.add(new ProfileActivity.Condition("High Blood Pressure"));
@@ -213,20 +415,105 @@ public class ProfileActivity extends AppCompatActivity {
 
             return lstItems;
         }
-    }
+    }*/
 
     // Just a test for now... //TODO get actual data from the database
     private void fillConditions(){
+        numcond =0;
+
+       // Log.d(TAG ,"IAM HERE IN SIDE FILL");
+
+        Button btn0 = (Button) findViewById(R.id.cond0);
+        Button btn1 = (Button) findViewById(R.id.cond1);
+        Button btn2 = (Button) findViewById(R.id.cond2);
+        Button btn3 = (Button) findViewById(R.id.cond3);
+        Button btn4 = (Button) findViewById(R.id.cond4);
+
+
+        DatabaseReference myref = mydatabase.getReference("Conditions");
+        myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               for (DataSnapshot ds: snapshot.getChildren()){
+                   String mykey = ds.getKey();
+                   Log.d(TAG,"CONDMYKEY IS "+mykey);
+                   if( numcond == 0){
+                       Condmykey0 = mykey;
+                       getcondition(mykey,btn0);
+                       btn1.setVisibility(View.VISIBLE);
+
+
+                   }
+                   if( numcond == 1){
+                       Condmykey1 = mykey;
+                       getcondition(mykey,btn1);
+                       btn2.setVisibility(View.VISIBLE);
+
+
+                   }
+                   if( numcond == 2){
+                      Condmykey2 = mykey;
+                       getcondition(mykey,btn2);
+                       btn3.setVisibility(View.VISIBLE);
+
+
+                   }
+                   if( numcond == 3){
+                      Condmykey3 = mykey;
+                       getcondition(mykey,btn3);
+                       btn4.setVisibility(View.VISIBLE);
+                   }
+                   if( numcond == 4){
+                      Condmykey4 = mykey;
+                       getcondition(mykey,btn4);
+
+                   }
+                   numcond =numcond+1;
+
+
+               }
+
+            }
 
 
 
-        ProfileActivity.Condition condition = new ProfileActivity.Condition();
-        List<ProfileActivity.Condition> cond = condition.GetItems();
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //ProfileActivity.Condition condition = new ProfileActivity.Condition();
+        /*Conditions conditions = new Conditions();
+        List<Conditions>  cond =new ArrayList<Conditions>();
+        FirebaseAuth myAuth = FirebaseAuth.getInstance();
+       String currentuserID = myAuth.getCurrentUser().getUid();
+        FirebaseDatabase mydatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myref = mydatabase.getReference("Conditions");
+        myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    for (DataSnapshot in : ds.getChildren()){
+                        Conditions conditions = in.getValue(Conditions.class);
+                        cond.add(conditions);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //List<ProfileActivity.Condition> cond = condition.GetItems();
         int numCond = cond.size();
 
         Button btn0 = (Button) findViewById(R.id.cond0);
         if(numCond > 0) {
-            btn0.setText(cond.get(0).name);
+            btn0.setText(cond.get(0).getCondition());
             btn0.setVisibility(View.VISIBLE);
             Button btn1 = (Button) findViewById(R.id.cond1);
             btn1.setVisibility(View.VISIBLE);
@@ -234,7 +521,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button btn1 = (Button) findViewById(R.id.cond1);
         if(numCond > 1) {
-            btn1.setText(cond.get(1).name);
+            btn1.setText(cond.get(1).getCondition());
             btn1.setVisibility(View.VISIBLE);
             Button btn2 = (Button) findViewById(R.id.cond2);
             btn2.setVisibility(View.VISIBLE);
@@ -242,7 +529,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button btn2 = (Button) findViewById(R.id.cond2);
         if(numCond > 2) {
-            btn2.setText(cond.get(2).name);
+            btn2.setText(cond.get(2).getCondition());
             btn2.setVisibility(View.VISIBLE);
             Button btn3 = (Button) findViewById(R.id.cond3);
             btn3.setVisibility(View.VISIBLE);
@@ -250,7 +537,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button btn3 = (Button) findViewById(R.id.cond3);
         if(numCond > 3) {
-            btn3.setText(cond.get(3).name);
+            btn3.setText(cond.get(3).getCondition());
             btn3.setVisibility(View.VISIBLE);
             Button btn4 = (Button) findViewById(R.id.cond4);
             btn4.setVisibility(View.VISIBLE);
@@ -258,13 +545,13 @@ public class ProfileActivity extends AppCompatActivity {
 
         Button btn4 = (Button) findViewById(R.id.cond4);
         if(numCond > 4) {
-            btn4.setText(cond.get(4).name);
+            btn4.setText(cond.get(4).getCondition());
             btn4.setVisibility(View.VISIBLE);
-        }
+        }*/
     }
 
     // Just a test for now... //TODO get actual data from the database
-    public class Prescription {
+    /*public class Prescription {
         private String name;
         private String time;
         private Boolean reminder;
@@ -290,11 +577,81 @@ public class ProfileActivity extends AppCompatActivity {
 
             return lstItems;
         }
-    }
+    }*/
 
     // Just a test for now... //TODO get actual data from the database
     private void fillPrescriptions(){
-        ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
+
+
+        numpres =0;
+
+        Button btn0 = (Button) findViewById(R.id.pres0);
+        Button btn1 = (Button) findViewById(R.id.pres1);
+        Button btn2 = (Button) findViewById(R.id.pres2);
+        Button btn3 = (Button) findViewById(R.id.pract3);
+        Button btn4 = (Button) findViewById(R.id.pract4);
+
+
+        DatabaseReference myref = mydatabase.getReference("Prescriptions");
+        myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    String mykey = ds.getKey();
+                    if( numpres == 0){
+                        presmykey0= mykey;
+                        getprescription(mykey,btn0);
+                        btn1.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numpres == 1){
+                        presmykey1 = mykey;
+                        getprescription(mykey,btn1);
+                        btn2.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numpres == 2){
+                        presmykey2 = mykey;
+                        getcondition(mykey,btn2);
+                        btn3.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numpres == 3){
+                        presmykey3= mykey;
+                        getcondition(mykey,btn3);
+                        btn4.setVisibility(View.VISIBLE);
+                    }
+                    if( numpres == 4){
+                        Presmykey4= mykey;
+                        getcondition(mykey,btn4);
+
+                    }
+                    numcond =numcond+1;
+
+
+                }
+
+            }
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+        /*ProfileActivity.Prescription prescription = new ProfileActivity.Prescription();
         List<ProfileActivity.Prescription> pres = prescription.GetItems();
         int numPres = pres.size();
 
@@ -334,11 +691,11 @@ public class ProfileActivity extends AppCompatActivity {
         if(numPres > 4) {
             btn4.setText(pres.get(4).name);
             btn4.setVisibility(View.VISIBLE);
-        }
+        }*/
     }
 
     // Just a test for now... //TODO get actual data from the database
-    public class Vaccine {
+    /*public class Vaccine {
         private String name;
         private String date;
         private Boolean reminder;
@@ -364,11 +721,89 @@ public class ProfileActivity extends AppCompatActivity {
 
             return lstItems;
         }
-    }
+    }*/
 
     // Just a test for now... //TODO get actual data from the database
     private void fillVaccines(){
-        ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
+
+        Log.d(TAG ,"IAM HERE IN SIDE FILL VACCINE");
+       numvac =0;
+
+        Button btn0 = (Button) findViewById(R.id.vacc0);
+        Button btn1 = (Button) findViewById(R.id.vacc1);
+        Button btn2 = (Button) findViewById(R.id.vacc2);
+        Button btn3 = (Button) findViewById(R.id.vacc3);
+        Button btn4 = (Button) findViewById(R.id.vacc4);
+
+
+        DatabaseReference myref = mydatabase.getReference("Vaccines");
+        myref.child(currentuserID).addListenerForSingleValueEvent(new ValueEventListener() {
+
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot ds: snapshot.getChildren()){
+                    String mykey = ds.getKey();
+                    Log.d(TAG,"VACMYKEY IS "+mykey);
+                    if( numvac == 0){
+                        vacmykey0 = mykey;
+                        getVacines(mykey,btn0);
+                        btn1.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numvac == 1){
+                        vacmykey1 = mykey;
+                        getVacines(mykey,btn1);
+                        btn2.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numvac == 2){
+                        vacmykey2 = mykey;
+                        getVacines(mykey,btn2);
+                        btn3.setVisibility(View.VISIBLE);
+
+
+                    }
+                    if( numvac == 3){
+                        vacmykey3 = mykey;
+                        getVacines(mykey,btn3);
+                        btn4.setVisibility(View.VISIBLE);
+                    }
+                    if( numvac== 4){
+                        vacmykey4 = mykey;
+                        getcondition(mykey,btn4);
+
+                    }
+                    numvac =numvac+1;
+
+
+                }
+
+            }
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+
+       /* ProfileActivity.Vaccine vaccine = new ProfileActivity.Vaccine();
         List<ProfileActivity.Vaccine> vacc = vaccine.GetItems();
         int numVacc = vacc.size();
 
@@ -408,7 +843,80 @@ public class ProfileActivity extends AppCompatActivity {
         if(numVacc > 4) {
             btn4.setText(vacc.get(4).name);
             btn4.setVisibility(View.VISIBLE);
-        }
+        }*/
+    }
+    public void getcondition(String mykey, Button button) {
+        DatabaseReference myref2 = mydatabase.getReference("Conditions");
+        myref2.child(currentuserID).child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+
+
+                Conditions conditions = snapshot.getValue(Conditions.class);
+
+                Log.d(TAG, "THE NAME IS "+ conditions.getCondition());
+
+
+               button.setText(conditions.getCondition().toString());
+
+                button.setVisibility(View.VISIBLE);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+    }
+    public void getprescription(String mykey, Button button) {
+        DatabaseReference myref3 = mydatabase.getReference("Prescriptions");
+        myref3.child(currentuserID).child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+               Prescriptions pres = snapshot.getValue(Prescriptions.class);
+
+                button.setText(pres.getPrescription());
+                button.setVisibility(View.VISIBLE);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
+    }
+    public void getVacines(String mykey, Button button) {
+        DatabaseReference myref3 = mydatabase.getReference("Vaccines");
+        myref3.child(currentuserID).child(mykey).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                 Vaccines vac = snapshot.getValue(Vaccines.class);
+
+                button.setText(vac.getVaccine());
+                button.setVisibility(View.VISIBLE);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+
     }
 
 
