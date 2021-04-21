@@ -1,9 +1,9 @@
 package com.example.healthtrack;
 
 public class Practitioner {
-    private  String Doctorname;
-    private  String Title;
-    private  String Address;
+    private String Doctorname;
+    private String Title;
+    private String Address;
 
     public Practitioner() {
 

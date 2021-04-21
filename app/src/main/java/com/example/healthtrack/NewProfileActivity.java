@@ -59,6 +59,8 @@ public class NewProfileActivity extends AppCompatActivity {
                 textBox.setVisibility(View.VISIBLE);
                 textBox = findViewById(R.id.remindSwitch);
                 textBox.setVisibility(View.GONE);
+                textBox = findViewById(R.id.EdittextType);
+                textBox.setVisibility(View.GONE);
                 if(edit){
                     title.setText("Edit " + type);
                    // String name = intent.getStringExtra("key_name");
@@ -252,6 +254,7 @@ public class NewProfileActivity extends AppCompatActivity {
       else if(type.equals("Prescription")){
           Prescriptions newpre = new Prescriptions();
           newpre.setPrescription(name);
+          newpre.setDose(Dose);
           newpre.setDatefrequency(Date);
           newpre.setTimefrequency(time);
           newpre.setType(typedata);
@@ -270,6 +273,7 @@ public class NewProfileActivity extends AppCompatActivity {
         else if(type.equals("Vaccine")) {
             Vaccines newvac = new Vaccines();
                 newvac.setVaccine(name);
+                newvac.setDose(Dose);
                 newvac.setDatefrequency(Date);
                 newvac.setTimerequency(time);
                 newvac.setType(typedata);
@@ -309,6 +313,21 @@ public class NewProfileActivity extends AppCompatActivity {
 
     public void onClickRemove(View view){
         // TODO: remove element from database
+
+        if(type.equals("Condition")){
+            DatabaseReference myref= mydatabase.getReference("Conditions");
+            myref.child(currentuserID).child(mykey).removeValue();
+
+        }
+        else if(type.equals("Prescription")){
+            DatabaseReference myref= mydatabase.getReference("Prescriptions");
+            myref.child(currentuserID).child(mykey).removeValue();
+
+        }
+        else if(type.equals("Prescription")){}
+        DatabaseReference myref = mydatabase.getReference("Vaccines");
+        myref.child(currentuserID).child(mykey).removeValue();
+
 
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
